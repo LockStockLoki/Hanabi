@@ -5,6 +5,7 @@ import com.fossgalaxy.games.fireworks.ai.rule.PlaySafeCard;
 import com.fossgalaxy.games.fireworks.ai.rule.ProductionRuleAgent;
 import com.fossgalaxy.games.fireworks.ai.rule.random.DiscardRandomly;
 import com.fossgalaxy.games.fireworks.ai.rule.random.TellRandomly;
+import com.fossgalaxy.games.fireworks.ai.rule.simple.PlayIfCertain;
 import com.fossgalaxy.games.fireworks.annotations.AgentBuilderStatic;
 
 /**
@@ -20,6 +21,7 @@ public class SampleRuleBased {
 
         //you can add rules to your agent here
         pra.addRule(new PlaySafeCard());
+        pra.addRule(new PlayIfCertain());
         pra.addRule(new TellRandomly());
         pra.addRule(new DiscardRandomly());
 
