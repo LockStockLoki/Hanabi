@@ -6,6 +6,8 @@ import com.fossgalaxy.games.fireworks.annotations.AgentConstructor;
 import com.fossgalaxy.games.fireworks.state.GameState;
 import com.fossgalaxy.games.fireworks.state.actions.Action;
 
+import com.fossgalaxy.games.fireworks.ai.RobertSalman.RobertSalmanNode;
+
 import java.sql.Struct;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,15 +18,6 @@ import java.util.Random;
  *
  * <b>IMPORTANT</b> You should rename this agent to your username
  */
-
-class Node {
-    Node ParentNode;
-    List<Node> ChildNodes;
-}
-
-class Tree {
-    Node root;
-}
 
 public class RobertSalman implements Agent {
     private Random random;
@@ -44,6 +37,7 @@ public class RobertSalman implements Agent {
         // choose a random item from that list and return it
         int moveToMake = random.nextInt(possibleMoves.size());
         return possibleMoves.get(moveToMake);
+
     }
 
 }
