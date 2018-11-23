@@ -23,7 +23,7 @@ class Node {
 }
 
 class Tree {
-
+    Node root;
 }
 
 public class RobertSalman implements Agent {

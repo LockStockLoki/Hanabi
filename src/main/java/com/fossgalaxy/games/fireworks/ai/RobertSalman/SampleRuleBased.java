@@ -1,4 +1,4 @@
-package com.fossgalaxy.games.fireworks.ai.username;
+package com.fossgalaxy.games.fireworks.ai.RobertSalman;
 
 import com.fossgalaxy.games.fireworks.ai.Agent;
 import com.fossgalaxy.games.fireworks.ai.rule.PlaySafeCard;
@@ -20,7 +20,7 @@ public class SampleRuleBased {
     public static Agent buildRuleBased() {
         ProductionRuleAgent pra = new ProductionRuleAgent();
 
-        //you can add rules to your agent here
+        // you can add rules to your agent here
         pra.addRule(new PlaySafeCard());
         pra.addRule(new PlayIfCertain());
         pra.addRule(new TellRandomly());
