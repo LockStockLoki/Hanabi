@@ -1,3 +1,3 @@
 git add --all
-git commit -m "Added a node class, removed node, tree and state from RobertSalman.java"
+git commit -m "Pushed because lab move"
 git push -u origin master
