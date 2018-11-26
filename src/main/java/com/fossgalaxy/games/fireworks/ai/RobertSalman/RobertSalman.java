@@ -25,19 +25,32 @@ import java.util.Random;
  * <b>IMPORTANT</b> You should rename this agent to your username
  */
 
-public class RobertSalman {
+public class RobertSalman implements Agent {
+    private static final int DefaultIterations = 50000;
+    private static final int DefaultRolloutDepth = 18;
+    private static final int DefaultTreeDepthMultiplier = 1;
 
-    @AgentBuilderStatic("SampleRuleBased")
-    public static Agent buildRuleBased() {
-        ProductionRuleAgent pra = new ProductionRuleAgent();
+    private Random random;
 
-        // you can add rules to your agent here
-        pra.addRule(new PlayIfCertain());
-        pra.addRule(new TellAnyoneAboutUsefulCard());
-        pra.addRule(new DiscardIfCertain());
-        pra.addRule(new DiscardOldestFirst());
+    public RobertSalman() {
+        this(DefaultIterations, DefaultRolloutDepth, DefaultTreeDepthMultiplier);
+    }
 
-        return pra;
+    @AgentConstructor("RobertSalman")
+    public RobertSalman(int RoundLength, int RolloutDepth, int DefaultTreeDepthMultiplier) {
+        
+    }
+
+    @Override
+    public Action doMove(int playerID, GameState gameState) {
+        // TODO replace this with your agent
+
+        // get all legal moves as a list
+        List<Action> possibleMoves = new ArrayList<>(Utils.generateActions(playerID, gameState));
+
+        // choose a random item from that list and return it
+
+        return null;
     }
 
 }
