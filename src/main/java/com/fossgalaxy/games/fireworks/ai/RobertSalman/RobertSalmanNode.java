@@ -14,59 +14,38 @@ import java.util.Random;
 
 public class RobertSalmanNode {
 
-    public static final double DefaultExplorationFactor = Math.sqrt(3);
+    int Visits = 0;
+    double Score = 0;
 
-    private final List<RobertSalmanNode> Children;
+    RobertSalmanNode Parent;
+    List<RobertSalmanNode> Children;
+    double ExplorationFactor;
 
-    private final RobertSalmanNode ParentNode;
-    private final int AgentID;
-    private final Action MoveToState;
-    private final double ExplorationFactor;
-    private final Collection<Action> UnexpandedActions;
-    private final Random _Random;
+    int AgentID;
+    Collection<Action> UnexpandedActions;
+    Action MoveToState;
 
-    private double Score;
-    private int Visits;
-
-    protected final StatsSummary RollOutScores;
-    protected final StatsSummary RollOutMoves;
-
-    public RobertSalmanNode(RobertSalmanNode Parent, int AgentID, Action MoveToState, double ExplorationFactor,
-            Collection<Action> UnexpandedActions) {
-
-        this.ParentNode = Parent;
+    public RobertSalmanNode(int AgentID, Collection<Action> UnexpandedActions, double ExplorationFactor,
+            RobertSalmanNode Parent) {
         this.AgentID = AgentID;
-        this.MoveToState = MoveToState;
-        this.ExplorationFactor = ExplorationFactor;
+        this.Parent = Parent;
         this.UnexpandedActions = new ArrayList<>(UnexpandedActions);
         this.Children = new ArrayList<>();
-        this._Random = new Random();
+        this.ExplorationFactor = ExplorationFactor;
 
-        this.Score = 0;
-        this.Visits = 0;
+    }
 
-        this.RollOutScores = new BasicStats();
-        this.RollOutMoves = new BasicStats();
+    public void AddCildNode(RobertSalmanNode Node) {
+        UnexpandedActions.remove(Node.GetAction());
+        Children.add(Node);
+    }
 
+    public List<RobertSalmanNode> GetChildren() {
+        return Children;
     }
 
     public Action GetAction() {
         return MoveToState;
     }
 
-    public void AddChildNodes(RobertSalmanNode Node) {
-        UnexpandedActions.remove(Node.GetAction());
-        Children.add(Node);
-    }
-
-    public double UTCValue() {
-        if (ParentNode == null) {
-            return 0;
-        } else
-            return (Score / Visits) + ExplorationFactor * (Math.sqrt((Math.log(ParentNode.Visits) / Visits)));
-    }
-
-    public List<RobertSalmanNode> GetChildren() {
-        return Children;
-    }
 }
