@@ -74,15 +74,15 @@ public class RobertSalmanNode {
 
     }
 
-    public RobertSalmanNode GetBestNodeForSelectionAndExpansion(RobertSalmanNode root) {
+    public RobertSalmanNode GetBestNodeForSelectionAndExpansion() {
         RobertSalmanNode bestChild = null;
         for (RobertSalmanNode temp : Children) {
             double highScore = 0;
             if (bestChild == null) {
                 bestChild = temp;
-                highScore = DoUCT(temp);
+                highScore = temp.DoUCT();
             } else {
-                double childUCT = DoUCT(temp);
+                double childUCT = temp.DoUCT();
                 if (childUCT > highScore) {
                     bestChild = temp;
                     highScore = childUCT;
@@ -92,11 +92,10 @@ public class RobertSalmanNode {
         return bestChild;
     }
 
-    private double DoUCT(RobertSalmanNode node) {
-        if (node.Parent == null)
+    private double DoUCT() {
+        if (Parent == null)
             return 0;
-        return ((node.Score / node.Visits)
-                + (Math.sqrt(node.ExplorationFactor * (Math.log(node.Parent.Visits) / node.Visits))));
+        return ((Score / Visits) + (Math.sqrt(ExplorationFactor * (Math.log(Parent.Visits) / Visits))));
     }
 
 }
