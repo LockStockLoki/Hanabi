@@ -35,6 +35,10 @@ public class RobertSalmanNode {
 
     }
 
+    // Remove the action from the list of actions left.
+
+    // If an action isn't removed from this list FullyExpanded() will never be
+    // emptied.
     public void AddChildNode(RobertSalmanNode Node) {
         UnexpandedActions.remove(Node.GetAction());
         Children.add(Node);
