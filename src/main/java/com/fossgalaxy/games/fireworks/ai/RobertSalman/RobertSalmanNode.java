@@ -52,4 +52,20 @@ public class RobertSalmanNode {
 
     }
 
+    // check to see if a node has been fully expanded
+    boolean FullyExpanded(GameState state, int playerID) {
+        if (UnexpandedActions.isEmpty()) {
+            return true;// there are no actions left to expand, therefore node is fully expanded.
+        }
+
+        for (Action action : UnexpandedActions) {
+            if (action.isLegal(playerID, state)) {
+                return false;// there are still legal actions left to make, node is not fully expanded
+            }
+        }
+        return true;// there are actions left, but they are not legal. Therefore the node is fully
+                    // expanded.
+
+    }
+
 }
