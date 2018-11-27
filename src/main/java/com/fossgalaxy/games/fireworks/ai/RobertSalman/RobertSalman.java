@@ -20,18 +20,21 @@ import java.util.Random;
  */
 
 public class RobertSalman implements Agent {
-    private static final int DefaultIterations = 50000;
-    private static final int DefaultRolloutDepth = 18;
-    private static final int DefaultTreeDepthMultiplier = 1;
+    private static final int defaultIterations = 50000;
+    private static final int defaultRolloutDepth = 18;
+
+    private static final int defaultTreeDepthMultiplier = 1;
+    private int treeDepthMultiplier = 1;
 
     private Random random;
 
     public RobertSalman() {
-        this(DefaultIterations, DefaultRolloutDepth, DefaultTreeDepthMultiplier);
+        this(defaultIterations, defaultRolloutDepth, defaultTreeDepthMultiplier);
     }
 
     @AgentConstructor("RobertSalman")
-    public RobertSalman(int RoundLength, int RolloutDepth, int DefaultTreeDepthMultiplier) {
+    public RobertSalman(int RoundLength, int RolloutDepth, int treeDepthMultiplier) {
+        this.treeDepthMultiplier = treeDepthMultiplier;
 
     }
 
@@ -47,4 +50,15 @@ public class RobertSalman implements Agent {
         return null;
     }
 
+    protected RobertSalmanNode Select(RobertSalmanNode root, GameState state) {
+        RobertSalmanNode CurrentNode = root;
+
+        int treeDepth = CalculateTreeDepth();
+        while(!state.isGameOver() && current.getDepth() < treeDepth)
+    }
+
+    protected int CalculateTreeDepth(GameState state) {
+        return state.getPlayerCount() * treeDepthMultiplier;
+
+    }
 }
