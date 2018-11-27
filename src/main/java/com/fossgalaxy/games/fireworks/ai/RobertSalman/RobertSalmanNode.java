@@ -35,13 +35,9 @@ public class RobertSalmanNode {
 
     }
 
-    <<<<<<<HEAD=======
     // Remove the action from the list of actions left.
-
     // If an action isn't removed from this list FullyExpanded() will never be
     // emptied.
-    >>>>>>>c8836644cc3f2f776c64c7b59b999a3490275c70
-
     public void AddChildNode(RobertSalmanNode Node) {
         UnexpandedActions.remove(Node.GetAction());
         Children.add(Node);
@@ -74,21 +70,5 @@ public class RobertSalmanNode {
                     // expanded.
 
     }
-
-    public int GetAgentID() {
-        return AgentID;
-    }
-
-    public RobertSalmanNode GetBestNodeForPlay() {
-
-    }
-
-    public RobertSalmanNode GetBestNodeForSelectionAndExpansion(RobertSalmanNode root) {
-        RobertSalmanNode bestChild = null;
-        root.Children.forEach((temp) -> {
-            if (bestChild == null) {
-                bestChild = temp;
-            }
-        });
 
 }
