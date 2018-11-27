@@ -35,6 +35,13 @@ public class RobertSalmanNode {
 
     }
 
+<<<<<<< HEAD
+=======
+    // Remove the action from the list of actions left.
+
+    // If an action isn't removed from this list FullyExpanded() will never be
+    // emptied.
+>>>>>>> c8836644cc3f2f776c64c7b59b999a3490275c70
     public void AddChildNode(RobertSalmanNode Node) {
         UnexpandedActions.remove(Node.GetAction());
         Children.add(Node);
@@ -46,6 +53,26 @@ public class RobertSalmanNode {
 
     public Action GetAction() {
         return MoveToState;
+    }
+
+    public void BackPropogation() {
+
+    }
+
+    // check to see if a node has been fully expanded
+    boolean FullyExpanded(GameState state, int playerID) {
+        if (UnexpandedActions.isEmpty()) {
+            return true;// there are no actions left to expand, therefore node is fully expanded.
+        }
+
+        for (Action action : UnexpandedActions) {
+            if (action.isLegal(playerID, state)) {
+                return false;// there are still legal actions left to make, node is not fully expanded
+            }
+        }
+        return true;// there are actions left, but they are not legal. Therefore the node is fully
+                    // expanded.
+
     }
 
 }

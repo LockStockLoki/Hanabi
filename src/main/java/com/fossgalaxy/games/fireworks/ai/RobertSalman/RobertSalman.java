@@ -5,7 +5,6 @@ import com.fossgalaxy.games.fireworks.ai.iggi.Utils;
 import com.fossgalaxy.games.fireworks.annotations.AgentConstructor;
 import com.fossgalaxy.games.fireworks.state.GameState;
 import com.fossgalaxy.games.fireworks.state.actions.Action;
-
 ///
 import com.fossgalaxy.games.fireworks.ai.rule.*;
 import com.fossgalaxy.games.fireworks.ai.rule.simple.*;
@@ -38,7 +37,7 @@ public class RobertSalman implements Agent {
 
     @AgentConstructor("RobertSalman")
     public RobertSalman(int RoundLength, int RolloutDepth, int DefaultTreeDepthMultiplier) {
-        
+
     }
 
     @Override
