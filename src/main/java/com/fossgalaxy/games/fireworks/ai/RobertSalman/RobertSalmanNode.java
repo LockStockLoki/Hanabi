@@ -75,21 +75,28 @@ public class RobertSalmanNode {
     }
 
     public RobertSalmanNode GetBestNodeForSelectionAndExpansion(RobertSalmanNode root) {
-        private RobertSalmanNode bestChild = null;
-        root.Children.forEach((temp) -> {
+        RobertSalmanNode bestChild = null;
+        for (RobertSalmanNode temp : Children) {
             double highScore = 0;
             if (bestChild == null) {
                 bestChild = temp;
-                highScore = bestChild.Score;
+                highScore = DoUCT(temp);
             } else {
-                double childUCT = 10;
+                double childUCT = DoUCT(temp);
                 if (childUCT > highScore) {
                     bestChild = temp;
-                    highScore = bestChild.Score;
+                    highScore = childUCT;
                 }
             }
+        }
+        return bestChild;
+    }
 
-        });
+    private double DoUCT(RobertSalmanNode node) {
+        if (node.Parent == null)
+            return 0;
+        return ((node.Score / node.Visits)
+                + (Math.sqrt(node.ExplorationFactor * (Math.log(node.Parent.Visits) / node.Visits))));
     }
 
 }
