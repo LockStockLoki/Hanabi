@@ -86,9 +86,22 @@ public class RobertSalmanNode {
     public RobertSalmanNode GetBestNodeForSelectionAndExpansion(RobertSalmanNode root) {
         RobertSalmanNode bestChild = null;
         root.Children.forEach((temp) -> {
+            double highScore;
             if (bestChild == null) {
                 bestChild = temp;
+                highScore = bestChild.Score;
             }
+            else
+            {
+                double childUCT = temp.Score/temp.Visits + (ExplorationFactor)
+                if ( > highScore)
+                {
+                    bestChild = temp;
+                    highScore = bestChild.Score;
+                }
+            }
+
         });
+    }
 
 }
