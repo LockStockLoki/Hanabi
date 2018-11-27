@@ -6,12 +6,6 @@ import com.fossgalaxy.games.fireworks.annotations.AgentConstructor;
 import com.fossgalaxy.games.fireworks.state.GameState;
 import com.fossgalaxy.games.fireworks.state.actions.Action;
 
-///
-import com.fossgalaxy.games.fireworks.ai.rule.*;
-import com.fossgalaxy.games.fireworks.ai.rule.simple.*;
-import com.fossgalaxy.games.fireworks.annotations.AgentBuilderStatic;
-///
-
 import com.fossgalaxy.games.fireworks.ai.RobertSalman.RobertSalmanNode;
 
 import java.sql.Struct;
@@ -38,7 +32,7 @@ public class RobertSalman implements Agent {
 
     @AgentConstructor("RobertSalman")
     public RobertSalman(int RoundLength, int RolloutDepth, int DefaultTreeDepthMultiplier) {
-        
+
     }
 
     @Override
