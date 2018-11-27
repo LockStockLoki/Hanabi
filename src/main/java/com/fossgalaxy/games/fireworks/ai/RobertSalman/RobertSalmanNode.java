@@ -35,13 +35,9 @@ public class RobertSalmanNode {
 
     }
 
-    <<<<<<<HEAD=======
     // Remove the action from the list of actions left.
-
     // If an action isn't removed from this list FullyExpanded() will never be
     // emptied.
-    >>>>>>>c8836644cc3f2f776c64c7b59b999a3490275c70
-
     public void AddChildNode(RobertSalmanNode Node) {
         UnexpandedActions.remove(Node.GetAction());
         Children.add(Node);
@@ -56,7 +52,6 @@ public class RobertSalmanNode {
     }
 
     public void BackPropogation() {
-
     }
 
     // check to see if a node has been fully expanded
@@ -75,27 +70,20 @@ public class RobertSalmanNode {
 
     }
 
-    public int GetAgentID() {
-        return AgentID;
-    }
-
     public RobertSalmanNode GetBestNodeForPlay() {
 
     }
 
     public RobertSalmanNode GetBestNodeForSelectionAndExpansion(RobertSalmanNode root) {
-        RobertSalmanNode bestChild = null;
+        private RobertSalmanNode bestChild = null;
         root.Children.forEach((temp) -> {
-            double highScore;
+            double highScore = 0;
             if (bestChild == null) {
                 bestChild = temp;
                 highScore = bestChild.Score;
-            }
-            else
-            {
-                double childUCT = temp.Score/temp.Visits + (ExplorationFactor)
-                if ( > highScore)
-                {
+            } else {
+                double childUCT = 10;
+                if (childUCT > highScore) {
                     bestChild = temp;
                     highScore = bestChild.Score;
                 }
@@ -105,3 +93,5 @@ public class RobertSalmanNode {
     }
 
 }
+
+// this is a test line
