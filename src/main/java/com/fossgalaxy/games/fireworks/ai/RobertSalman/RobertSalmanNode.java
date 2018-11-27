@@ -35,7 +35,7 @@ public class RobertSalmanNode {
 
     }
 
-    public void AddCildNode(RobertSalmanNode Node) {
+    public void AddChildNode(RobertSalmanNode Node) {
         UnexpandedActions.remove(Node.GetAction());
         Children.add(Node);
     }
