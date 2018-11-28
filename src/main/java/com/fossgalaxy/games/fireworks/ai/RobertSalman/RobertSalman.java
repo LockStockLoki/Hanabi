@@ -5,7 +5,7 @@ import com.fossgalaxy.games.fireworks.ai.iggi.Utils;
 import com.fossgalaxy.games.fireworks.annotations.AgentConstructor;
 import com.fossgalaxy.games.fireworks.state.GameState;
 import com.fossgalaxy.games.fireworks.state.actions.Action;
-
+import com.fossgalaxy.games.fireworks.state.events.GameEvent;
 import com.fossgalaxy.games.fireworks.ai.RobertSalman.RobertSalmanNode;
 
 import java.sql.Struct;
@@ -42,13 +42,6 @@ public class RobertSalman implements Agent {
 
     @Override
     public Action doMove(int playerID, GameState gameState) {
-        // TODO replace this with your agent
-
-        // get all legal moves as a list
-        List<Action> possibleMoves = new ArrayList<>(Utils.generateActions(playerID, gameState));
-
-        // choose a random item from that list and return it
-
         return null;
     }
 
@@ -77,6 +70,17 @@ public class RobertSalman implements Agent {
             if (nextNode == null) {
                 return currentNode;
             }
+
+            currentNode = nextNode;
+
+            Action action = currentNode.GetAction();
+            if (action != null) {
+                List<GameEvent> events = action.apply(currentNode.GetAgentID(), state);
+                events.forEach(state::addEvent);
+                state.tick();
+            }
+
+            return currentNode;
         }
     }
 

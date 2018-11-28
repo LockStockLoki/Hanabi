@@ -118,4 +118,8 @@ public class RobertSalmanNode {
         return depth;
     }
 
+    int GetAgentID() {
+        return agentID;
+    }
+
 }
