@@ -84,14 +84,20 @@ public class RobertSalmanNode {
 
     }
 
-    public RobertSalmanNode GetBestNodeForSelectionAndExpansion() {
-        RobertSalmanNode bestChild = null;
+    // Method to traverse the tree of known nodes using UCT in order to find the
+    // next leaf node to explore
+    public RobertSalmanNode UCTTraversal() {
+        RobertSalmanNode bestChild = null;// stores the currently known best child node through loop iterations
         for (RobertSalmanNode temp : children) {
             double highScore = 0;
+
+            // if first iteration of loop make the first child the bestChild
             if (bestChild == null) {
                 bestChild = temp;
                 highScore = temp.DoUCT();
-            } else {
+            } else // compare each child's UCT score with the UCT score of the bestChild. If
+                   // better, make it the new bestChild
+            {
                 double childUCT = temp.DoUCT();
                 if (childUCT > highScore) {
                     bestChild = temp;
