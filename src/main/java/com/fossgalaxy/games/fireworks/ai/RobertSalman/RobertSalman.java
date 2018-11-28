@@ -81,7 +81,17 @@ public class RobertSalman implements Agent {
         return currentNode;
     }
 
+    protected Action SelectActionForExpand(GameState state, RobertSalmanNode node, int agentID) {
+        Collection<Action> actions = node.GetLegalMoves(state, agentID);
+    }
+
     protected RobertSalmanNode Expand(RobertSalmanNode parentNode, GameState gameState) {
+
+        return null;
+    }
+
+    public int GetNextAgentID(GameState state, int agentID) {
+
     }
 
 }

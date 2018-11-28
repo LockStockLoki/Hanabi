@@ -123,4 +123,8 @@ public class RobertSalmanNode {
         return agentID;
     }
 
+    public Collection<Action> GetLegalMoves(GameState stete, int nextID) {
+        return unexpandedActions;
+    }
+
 }
