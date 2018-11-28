@@ -48,12 +48,10 @@ public class RobertSalman implements Agent {
     protected RobertSalmanNode Select(RobertSalmanNode root, GameState state) {
         RobertSalmanNode currentNode = root;
 
-        int treeDepth = CalculateTreeDepth(state);
-
         // as long as the game isn't over and we haven't
         // spent too many cyclyes looking at this tree, let's
         // select another node
-        while (!state.isGameOver() && currentNode.GetDepth() < treeDepth) {
+        while (!state.isGameOver()) {
             RobertSalmanNode nextNode;
 
             // Current node has been expansed fully, now we need to expand another node as
@@ -79,14 +77,8 @@ public class RobertSalman implements Agent {
                 events.forEach(state::addEvent);
                 state.tick();
             }
-
-            return currentNode;
         }
-    }
-
-    protected int CalculateTreeDepth(GameState state) {
-        return state.getPlayerCount() * (treeDepthMultiplier + 1);
-
+        return currentNode;
     }
 
     protected RobertSalmanNode Expand(RobertSalmanNode parentNode, GameState gameState) {

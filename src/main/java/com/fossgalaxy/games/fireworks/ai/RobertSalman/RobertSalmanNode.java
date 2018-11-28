@@ -81,6 +81,7 @@ public class RobertSalmanNode {
     }
 
     public RobertSalmanNode GetBestNodeForPlay() {
+        return null;
 
     }
 
