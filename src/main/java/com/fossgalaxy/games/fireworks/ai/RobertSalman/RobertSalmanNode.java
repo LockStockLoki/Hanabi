@@ -16,6 +16,7 @@ public class RobertSalmanNode {
 
     int visits = 0;
     double score = 0;
+    int depth;
 
     RobertSalmanNode parent;
     List<RobertSalmanNode> children;
@@ -54,7 +55,8 @@ public class RobertSalmanNode {
     public void BackPropogation() {
     }
 
-    // check to see if a node has been fully expanded
+    // check to see if a node has been fully expanded passing in the playerID and
+    // the game state.
     boolean FullyExpanded(GameState state, int playerID) {
         if (unexpandedActions.isEmpty()) {
             return true;// there are no actions left to expand, therefore node is fully expanded.
@@ -68,6 +70,14 @@ public class RobertSalmanNode {
         return true;// there are actions left, but they are not legal. Therefore the node is fully
                     // expanded.
 
+    }
+
+    // Check to see if a node has been fully expanded passing in only a gamestate
+    // We then call the FullyExpanded mehtod passing in both state and an agentID.
+    // The second parameter of the return gives the next player in order.
+    // I.e. 0 -> 1 -> 2 -> 3 -> 4 -> 0
+    boolean FullyExpanded(GameState state) {
+        return FullyExpanded(state, (agentID + 1) % state.getPlayerCount());
     }
 
     public RobertSalmanNode GetBestNodeForPlay() {
@@ -96,6 +106,10 @@ public class RobertSalmanNode {
         if (parent == null)
             return 0;
         return ((score / visits) + (Math.sqrt(explorationFactor * (Math.log(parent.visits) / visits))));
+    }
+
+    int GetDepth() {
+        return depth;
     }
 
 }

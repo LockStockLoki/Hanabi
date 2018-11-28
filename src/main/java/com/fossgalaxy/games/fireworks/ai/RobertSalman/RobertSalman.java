@@ -28,6 +28,8 @@ public class RobertSalman implements Agent {
 
     private Random random;
 
+    int depth;
+
     public RobertSalman() {
         this(defaultIterations, defaultRolloutDepth, defaultTreeDepthMultiplier);
     }
@@ -51,14 +53,23 @@ public class RobertSalman implements Agent {
     }
 
     protected RobertSalmanNode Select(RobertSalmanNode root, GameState state) {
-        RobertSalmanNode CurrentNode = root;
+        RobertSalmanNode currentNode = root;
 
-        int treeDepth = CalculateTreeDepth();
-        while(!state.isGameOver() && current.getDepth() < treeDepth)
+        int treeDepth = CalculateTreeDepth(state);
+
+        // as long as the game isn't over and we haven't
+        // spent too many cyclyes looking at this tree, let's
+        // select another node
+        while (!state.isGameOver() && currentNode.GetDepth() < treeDepth) {
+            RobertSalmanNode nextNode;
+
+            if(currentNode.FullyExpanded(state))
+        }
     }
 
     protected int CalculateTreeDepth(GameState state) {
-        return state.getPlayerCount() * treeDepthMultiplier;
+        return state.getPlayerCount() * (treeDepthMultiplier + 1);
 
     }
+
 }
