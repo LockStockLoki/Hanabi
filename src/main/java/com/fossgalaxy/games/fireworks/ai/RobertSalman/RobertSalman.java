@@ -63,13 +63,25 @@ public class RobertSalman implements Agent {
         while (!state.isGameOver() && currentNode.GetDepth() < treeDepth) {
             RobertSalmanNode nextNode;
 
-            if(currentNode.FullyExpanded(state))
+            // Current node has been expansed fully, now we need to expand another node as
+            // we still have time.
+            if (currentNode.FullyExpanded(state)) {
+                nextNode = currentNode.GetBestNodeForSelectionAndExpansion();
+            }
+            // Node is not fully expanded so we expand it until it is.
+            else {
+                nextNode = Expand(currentNode, state);
+                return nextNode;
+            }
         }
     }
 
     protected int CalculateTreeDepth(GameState state) {
         return state.getPlayerCount() * (treeDepthMultiplier + 1);
 
+    }
+
+    protected RobertSalmanNode Expand(RobertSalmanNode parentNode, GameState gameState) {
     }
 
 }
