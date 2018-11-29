@@ -28,8 +28,8 @@ public class RobertSalmanNode {
     Collection<Action> unexpandedActions;
     Action moveToState;
 
-    StatsSummary backupScore;
-    StatsSummary backupVisits;
+    StatsSummary backPropScore;
+    StatsSummary backPropSteps;
 
     public RobertSalmanNode(RobertSalmanNode parentNode, int agentID, Action action,
             Collection<Action> unexpandedActions) {
@@ -44,8 +44,8 @@ public class RobertSalmanNode {
         this.explorationFactor = explorationFactor;
         this.unexpandedActions = new ArrayList<>(unexpandedActions);
         this.children = new ArrayList<>();
-        this.backupScore = new BasicStats();
-        this.backupVisits = new BasicStats();
+        this.backPropScore = new BasicStats();
+        this.backPropSteps = new BasicStats();
     }
 
     // Remove the action from the list of actions left.
@@ -82,7 +82,21 @@ public class RobertSalmanNode {
         return moveToState;
     }
 
-    public void BackPropagation() {
+    public void TreeBackPropagation(double score) {
+        RobertSalmanNode thisNode = this;
+        do {
+            thisNode.score += score;
+            thisNode.visits++;
+            thisNode = thisNode.parent;
+        } while (thisNode != null);
+    }
+
+    public void SimulationBackPropagation(int steps, int score) {
+        backPropSteps.add(steps);
+        backPropScore.add(score);
+        if (parent != null) {
+            parent.SimulationBackPropagation(steps, score);
+        }
     }
 
     // check to see if a node has been fully expanded passing in the playerID and

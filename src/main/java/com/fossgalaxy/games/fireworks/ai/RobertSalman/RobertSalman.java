@@ -2,10 +2,17 @@ package com.fossgalaxy.games.fireworks.ai.RobertSalman;
 
 import com.fossgalaxy.games.fireworks.ai.Agent;
 import com.fossgalaxy.games.fireworks.ai.iggi.Utils;
+import com.fossgalaxy.games.fireworks.ai.rule.logic.DeckUtils;
 import com.fossgalaxy.games.fireworks.annotations.AgentConstructor;
+import com.fossgalaxy.games.fireworks.state.Card;
+import com.fossgalaxy.games.fireworks.state.Deck;
 import com.fossgalaxy.games.fireworks.state.GameState;
+import com.fossgalaxy.games.fireworks.state.Hand;
 import com.fossgalaxy.games.fireworks.state.actions.Action;
 import com.fossgalaxy.games.fireworks.state.events.GameEvent;
+
+import ch.qos.logback.classic.pattern.Util;
+
 import com.fossgalaxy.games.fireworks.ai.RobertSalman.RobertSalmanNode;
 
 import java.applet.Applet;
@@ -13,6 +20,7 @@ import java.sql.Struct;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.Iterator;
 
@@ -37,7 +45,6 @@ public class RobertSalman implements Agent {
         this(defaultIterations, defaultRolloutDepth, defaultTreeDepthMultiplier);
     }
 
-    @AgentConstructor("RobertSalman")
     public RobertSalman(int RoundLength, int RolloutDepth, int treeDepthMultiplier) {
         this.treeDepthMultiplier = treeDepthMultiplier;
 
@@ -45,6 +52,31 @@ public class RobertSalman implements Agent {
 
     @Override
     public Action doMove(int playerID, GameState gameState) {
+        long timeLimit = System.currentTimeMillis() + 1000; // one second time budget
+
+        RobertSalmanNode rootNode = new RobertSalmanNode(null, playerID, null,
+                Utils.generateAllActions(playerID, gameState.getPlayerCount())); // declares root node. Parent and
+                                                                                 // action is null
+
+        Map<Integer, List<Card>> possibleCards = DeckUtils.bindCard(playerID, gameState.getHand(playerID),
+                gameState.getDeck().toList());
+
+        while (System.currentTimeMillis() < timeLimit) {
+            List<Integer> bindOrder = DeckUtils.bindOrder(possibleCards);
+            Map<Integer, Card> CardsInMyHand = DeckUtils.bindCards(bindOrder, possibleCards);
+
+            Deck deck = gameState.getDeck();
+            Hand myHand = gameState.getHand(playerID);
+            for (int cardSlot = 0; cardSlot < myHand.getSize(); cardSlot++) {
+                Card hand = myHand.getCard(cardSlot);
+                myHand.bindCard(cardSlot, hand);
+                deck.remove(hand);
+            }
+            deck.shuffle();
+            RobertSalmanNode selectedNode = Select(rootNode, gameState);
+            int score = Simulate(gameState, playerID, selectedNode);
+            selectedNode.TreeBackPropagation(score);
+        }
         return null;
     }
 
@@ -143,6 +175,7 @@ public class RobertSalman implements Agent {
 
     int Simulate(GameState gameState, int agentID, RobertSalmanNode currentNode) {
         int playerID = agentID;
+        int steps = 0;
         Action action;
         while (!gameState.isGameOver()) {
             action = ActionForSimulate(gameState, playerID);
@@ -153,8 +186,9 @@ public class RobertSalman implements Agent {
             }
             gameState.tick();
             playerID = GetNextAgentID(gameState, currentNode);
+            steps++;
         }
-        currentNode.BackPropagation();
+        currentNode.SimulationBackPropagation(steps, gameState.getScore());
         return gameState.getScore();
     }
 
