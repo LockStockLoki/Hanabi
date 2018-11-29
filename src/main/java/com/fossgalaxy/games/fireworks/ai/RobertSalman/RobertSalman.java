@@ -10,8 +10,10 @@ import com.fossgalaxy.games.fireworks.ai.RobertSalman.RobertSalmanNode;
 
 import java.sql.Struct;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Random;
+import java.util.Iterator;
 
 /**
  * A simple agent that performs a random move.
@@ -83,15 +85,33 @@ public class RobertSalman implements Agent {
 
     protected Action SelectActionForExpand(GameState state, RobertSalmanNode node, int agentID) {
         Collection<Action> actions = node.GetLegalMoves(state, agentID);
+        // there are no actions we can use to expand, therefore we have nothing to
+        // return
+        if (actions.isEmpty()) {
+            return null;
+        }
+
+        Iterator<Action> actionIterator = actions.iterator();// iterate over the collection of actions declared closeby
+        int selectedActionID = random.nextInt(actions.size() + 1);
+
+        // Access and return the next action, iterating through it with a for loop to
+        // access it.
+        Action currentAction = actionIterator.next();
+        for (int i = 0; i < selectedActionID; i++) {
+            currentAction = actionIterator.next();
+        }
+
+        return currentAction;
     }
 
     protected RobertSalmanNode Expand(RobertSalmanNode parentNode, GameState gameState) {
+        Action action = SelectActionForExpand(gameState, parentNode, GetNextAgentID(gameState, parentNode));
 
         return null;
     }
 
-    public int GetNextAgentID(GameState state, int agentID) {
-
+    public int GetNextAgentID(GameState gameState, RobertSalmanNode parentNode) {
+        return (parentNode.GetAgentID() + 1) % gameState.getPlayerCount();
     }
 
 }

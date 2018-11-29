@@ -5,6 +5,8 @@
 		}
 	],
 	"settings": {
-		"java.configuration.updateBuildConfiguration": "automatic"
+		"java.configuration.updateBuildConfiguration": "automatic",
+		"editor.autoClosingBrackets": "always",
+		"editor.autoClosingQuotes": "always"
 	}
 }
