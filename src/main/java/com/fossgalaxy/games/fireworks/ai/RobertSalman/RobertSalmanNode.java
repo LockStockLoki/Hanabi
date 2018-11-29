@@ -60,6 +60,15 @@ public class RobertSalmanNode {
         return children;
     }
 
+    public RobertSalmanNode GetChild(Action action) {
+        for (RobertSalmanNode child : children) {
+            if (child.GetAction().equals(action)) {
+                return child;
+            }
+        }
+        return null;
+    }
+
     public boolean ContainsChild(Action action) {
         for (RobertSalmanNode child : children) {
             if (child.moveToState.equals(action)) {

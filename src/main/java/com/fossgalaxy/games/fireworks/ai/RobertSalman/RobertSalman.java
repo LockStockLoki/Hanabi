@@ -92,7 +92,7 @@ public class RobertSalman implements Agent {
         }
 
         Iterator<Action> actionIterator = actions.iterator();// iterate over the collection of actions declared closeby
-        int selectedActionID = random.nextInt(actions.size() + 1);
+        int selectedActionID = random.nextInt(actions.size());
 
         // Access and return the next action, iterating through it with a for loop to
         // access it.
@@ -110,12 +110,14 @@ public class RobertSalman implements Agent {
         if (action == null) {
             return parentNode;
         }
+        if (parentNode.ContainsChild(action)) {
+            return parentNode.GetChild(action);
+        }
 
         RobertSalmanNode child = new RobertSalmanNode(parentNode, nextAgentID, action,
                 Utils.generateAllActions(nextAgentID, gameState.getPlayerCount()));
-        parentNode.AddChildNode(child);
 
-        return child;
+        return null;
     }
 
     public int GetNextAgentID(GameState gameState, RobertSalmanNode parentNode) {
