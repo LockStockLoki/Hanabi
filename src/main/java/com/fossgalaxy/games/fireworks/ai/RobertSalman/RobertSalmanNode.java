@@ -73,7 +73,7 @@ public class RobertSalmanNode {
         return moveToState;
     }
 
-    public void BackPropogation() {
+    public void BackPropagation() {
     }
 
     // check to see if a node has been fully expanded passing in the playerID and
