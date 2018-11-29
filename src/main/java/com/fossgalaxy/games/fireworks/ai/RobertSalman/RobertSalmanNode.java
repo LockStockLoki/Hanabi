@@ -48,6 +48,15 @@ public class RobertSalmanNode {
         return children;
     }
 
+    public boolean ContainsChild(Action action) {
+        for (RobertSalmanNode child : children) {
+            if (child.moveToState.equals(action)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public Action GetAction() {
         return moveToState;
     }

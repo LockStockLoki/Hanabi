@@ -106,6 +106,11 @@ public class RobertSalman implements Agent {
 
     protected RobertSalmanNode Expand(RobertSalmanNode parentNode, GameState gameState) {
         Action action = SelectActionForExpand(gameState, parentNode, GetNextAgentID(gameState, parentNode));
+        if(action == null)
+        {
+            return parentNode;
+        }
+        if()
 
         return null;
     }
