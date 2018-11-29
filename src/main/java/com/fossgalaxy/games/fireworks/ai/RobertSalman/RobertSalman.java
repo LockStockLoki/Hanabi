@@ -117,7 +117,7 @@ public class RobertSalman implements Agent {
         RobertSalmanNode child = new RobertSalmanNode(parentNode, nextAgentID, action,
                 Utils.generateAllActions(nextAgentID, gameState.getPlayerCount()));
 
-        return null;
+        return child;
     }
 
     public int GetNextAgentID(GameState gameState, RobertSalmanNode parentNode) {
