@@ -8,6 +8,7 @@ import com.fossgalaxy.games.fireworks.state.actions.Action;
 import com.fossgalaxy.games.fireworks.state.events.GameEvent;
 import com.fossgalaxy.games.fireworks.ai.RobertSalman.RobertSalmanNode;
 
+import java.applet.Applet;
 import java.sql.Struct;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -116,12 +117,45 @@ public class RobertSalman implements Agent {
 
         RobertSalmanNode child = new RobertSalmanNode(parentNode, nextAgentID, action,
                 Utils.generateAllActions(nextAgentID, gameState.getPlayerCount()));
+        parentNode.AddChildNode(child);
 
         return child;
     }
 
     public int GetNextAgentID(GameState gameState, RobertSalmanNode parentNode) {
         return (parentNode.GetAgentID() + 1) % gameState.getPlayerCount();
+    }
+
+    Action ActionForSimulate(GameState gameState, int playerID) {
+        Collection<Action> actions = Utils.generateActions(playerID, gameState);
+
+        Iterator<Action> actionIterator = actions.iterator();
+        int selectedActionID = random.nextInt(actions.size());
+
+        Action currentAction = actionIterator.next();
+        for (int i = 0; i < selectedActionID; i++) {
+            currentAction = actionIterator.next();
+        }
+
+        return currentAction;
+
+    }
+
+    int Simulate(GameState gameState, int agentID, RobertSalmanNode currentNode) {
+        int playerID = agentID;
+        Action action;
+        while (!gameState.isGameOver()) {
+            action = ActionForSimulate(gameState, playerID);
+            List<GameEvent> gameEvents = action.apply(playerID, gameState);
+            for (GameEvent event : gameEvents) {
+                gameState.addEvent(event);
+
+            }
+            gameState.tick();
+            playerID = GetNextAgentID(gameState, currentNode);
+        }
+        currentNode.BackPropagation();
+        return gameState.getScore();
     }
 
 }
