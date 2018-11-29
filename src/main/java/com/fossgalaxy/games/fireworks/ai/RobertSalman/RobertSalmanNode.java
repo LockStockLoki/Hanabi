@@ -26,14 +26,24 @@ public class RobertSalmanNode {
     Collection<Action> unexpandedActions;
     Action moveToState;
 
-    public RobertSalmanNode(int agentID, Collection<Action> unexpandedActions, double explorationFactor,
-            RobertSalmanNode parent) {
+    StatsSummary backupScore;
+    StatsSummary backupVisits;
+
+    public RobertSalmanNode(RobertSalmanNode parentNode, int nextID, Action action,
+            Collection<Action> unexpandedActions) {
+        this(nextID, parentNode, nextID, action, unexpandedActions);
+    }
+
+    public RobertSalmanNode(RobertSalmanNode parentNode, int agentID, Action action,
+            Collection<Action> unexpandedActions, double explorationFactor) {
+        this.parent = parentNode;
         this.agentID = agentID;
-        this.parent = parent;
+        this.moveToState = action;
+        this.explorationFactor = explorationFactor;
         this.unexpandedActions = new ArrayList<>(unexpandedActions);
         this.children = new ArrayList<>();
-        this.explorationFactor = explorationFactor;
-
+        this.backupScore = new BasicStats();
+        this.backupVisits = new BasicStats();
     }
 
     // Remove the action from the list of actions left.

@@ -105,12 +105,15 @@ public class RobertSalman implements Agent {
     }
 
     protected RobertSalmanNode Expand(RobertSalmanNode parentNode, GameState gameState) {
-        Action action = SelectActionForExpand(gameState, parentNode, GetNextAgentID(gameState, parentNode));
+        int nextAgentID = GetNextAgentID(gameState, parentNode);
+        Action action = SelectActionForExpand(gameState, parentNode, nextAgentID);
         if(action == null)
         {
             return parentNode;
         }
-        if()
+
+        RobertSalmanNode child = new RobertSalmanNode(parentNode)
+
 
         return null;
     }
