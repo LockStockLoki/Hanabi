@@ -47,6 +47,7 @@ public class RobertSalman implements Agent {
 
     public RobertSalman(int RoundLength, int RolloutDepth, int treeDepthMultiplier) {
         this.treeDepthMultiplier = treeDepthMultiplier;
+        random = new Random();
 
     }
 
@@ -54,7 +55,8 @@ public class RobertSalman implements Agent {
     public Action doMove(int playerID, GameState gameState) {
         long timeLimit = System.currentTimeMillis() + 1000; // one second time budget
 
-        RobertSalmanNode rootNode = new RobertSalmanNode(null, playerID, null,
+        RobertSalmanNode rootNode = new RobertSalmanNode(null,
+                (playerID + gameState.getPlayerCount() - 1) % gameState.getPlayerCount(), null,
                 Utils.generateAllActions(playerID, gameState.getPlayerCount())); // declares root node. Parent and
                                                                                  // action is null
 

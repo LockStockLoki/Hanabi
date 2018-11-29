@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public class RobertSalmanNode {
 
@@ -181,8 +182,8 @@ public class RobertSalmanNode {
         return agentID;
     }
 
-    public Collection<Action> GetLegalMoves(GameState stete, int nextID) {
-        return unexpandedActions;
+    public Collection<Action> GetLegalMoves(GameState state, int nextID) {
+        return unexpandedActions.stream().filter(action -> action.isLegal(nextID, state)).collect(Collectors.toList());
     }
 
 }
