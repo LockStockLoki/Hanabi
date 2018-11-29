@@ -14,6 +14,8 @@ import java.util.Random;
 
 public class RobertSalmanNode {
 
+    public static final double DEFAULT_EXP_FACTOR = Math.sqrt(2);
+
     int visits = 0;
     double score = 0;
     int depth;
@@ -29,9 +31,9 @@ public class RobertSalmanNode {
     StatsSummary backupScore;
     StatsSummary backupVisits;
 
-    public RobertSalmanNode(RobertSalmanNode parentNode, int nextID, Action action,
+    public RobertSalmanNode(RobertSalmanNode parentNode, int agentID, Action action,
             Collection<Action> unexpandedActions) {
-        this(nextID, parentNode, nextID, action, unexpandedActions);
+        this(parentNode, agentID, action, unexpandedActions, DEFAULT_EXP_FACTOR);
     }
 
     public RobertSalmanNode(RobertSalmanNode parentNode, int agentID, Action action,
