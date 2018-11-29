@@ -153,6 +153,20 @@ public class RobertSalmanNode {
         return bestChild;
     }
 
+    public RobertSalmanNode GetFinalBestNode() {
+        RobertSalmanNode ThisIsNotTheGreatestNodeInTheWorldItIsJustATribute = null;
+        for (RobertSalmanNode temp : children) {
+            if (ThisIsNotTheGreatestNodeInTheWorldItIsJustATribute == null) {
+                ThisIsNotTheGreatestNodeInTheWorldItIsJustATribute = temp;
+            } else {
+                if (ThisIsNotTheGreatestNodeInTheWorldItIsJustATribute.score <= temp.score) {
+                    ThisIsNotTheGreatestNodeInTheWorldItIsJustATribute = temp;
+                }
+            }
+        }
+        return ThisIsNotTheGreatestNodeInTheWorldItIsJustATribute;
+    }
+
     private double DoUCT() {
         if (parent == null)
             return 0;

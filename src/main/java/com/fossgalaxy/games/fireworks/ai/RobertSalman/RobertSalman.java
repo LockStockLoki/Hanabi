@@ -77,7 +77,7 @@ public class RobertSalman implements Agent {
             int score = Simulate(gameState, playerID, selectedNode);
             selectedNode.TreeBackPropagation(score);
         }
-        return null;
+        return rootNode.GetFinalBestNode().GetAction();
     }
 
     protected RobertSalmanNode Select(RobertSalmanNode root, GameState state) {
