@@ -133,7 +133,7 @@ public class RobertSalmanNode {
     private double DoUCT() {
         if (parent == null)
             return 0;
-        return ((score / visits) + (Math.sqrt(explorationFactor * (Math.log(parent.visits) / visits))));
+        return ((score / visits) + (explorationFactor * (Math.log(parent.visits) / visits)));
     }
 
     int GetDepth() {
