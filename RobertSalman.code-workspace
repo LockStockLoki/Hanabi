@@ -7,6 +7,7 @@
 	"settings": {
 		"java.configuration.updateBuildConfiguration": "automatic",
 		"editor.autoClosingBrackets": "always",
-		"editor.autoClosingQuotes": "always"
+		"editor.autoClosingQuotes": "always",
+		"java.format.enabled": false
 	}
 }

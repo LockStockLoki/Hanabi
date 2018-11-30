@@ -1,4 +1,4 @@
 commit.bat
-RMCTSNode.java
-RMCTS.java
+MCTS.java
+MCTSNode.java
 IterationObject.java
