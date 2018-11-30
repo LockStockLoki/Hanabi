@@ -94,7 +94,7 @@ public class RobertSalman implements Agent {
             // Current node has been expansed fully, now we need to expand another node as
             // we still have time.
             if (currentNode.FullyExpanded(state)) {
-                nextNode = currentNode.UCTTraversal();
+                nextNode = currentNode.UCTTraversal(state);
             }
             // Node is not fully expanded so we expand it until it is.
             else {

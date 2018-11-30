@@ -32,6 +32,11 @@ public class RobertSalmanNode {
     StatsSummary backPropScore;
     StatsSummary backPropSteps;
 
+    int parentWasVisitedAndIWasLegal;
+
+    Random random;
+    private static final double EPSILON = 1e-6;
+
     public RobertSalmanNode(RobertSalmanNode parentNode, int agentID, Action action,
             Collection<Action> unexpandedActions) {
         this(parentNode, agentID, action, unexpandedActions, DEFAULT_EXP_FACTOR);
@@ -47,6 +52,7 @@ public class RobertSalmanNode {
         this.children = new ArrayList<>();
         this.backPropScore = new BasicStats();
         this.backPropSteps = new BasicStats();
+        random = new Random();
     }
 
     // Remove the action from the list of actions left.
@@ -132,25 +138,34 @@ public class RobertSalmanNode {
 
     // Method to traverse the tree of known nodes using UCT in order to find the
     // next leaf node to explore
-    public RobertSalmanNode UCTTraversal() {
+    public RobertSalmanNode UCTTraversal(GameState state) {
+        double bestScore = -Double.MAX_VALUE;
         RobertSalmanNode bestChild = null;// stores the currently known best child node through loop iterations
-        for (RobertSalmanNode temp : children) {
-            double highScore = 0;
 
-            // if first iteration of loop make the first child the bestChild
-            if (bestChild == null) {
-                bestChild = temp;
-                highScore = temp.DoUCT();
-            } else // compare each child's UCT score with the UCT score of the bestChild. If
-                   // better, make it the new bestChild
-            {
-                double childUCT = temp.DoUCT();
-                if (childUCT > highScore) {
-                    bestChild = temp;
-                    highScore = childUCT;
-                }
+        for (RobertSalmanNode child : children) {
+            // XXX Hack to check if the move is legal in this version
+            Action moveToMake = child.moveToState;
+            if (!moveToMake.isLegal(child.agentID, state)) {
+                continue;
+            }
+            child.parentWasVisitedAndIWasLegal++;
+            double childScore = child.DoUCT() + (random.nextDouble() * EPSILON);
+
+            if (childScore > bestScore) {
+                bestScore = childScore;
+                bestChild = child;
             }
         }
+
+        /*
+         * for (RobertSalmanNode temp : children) { double highScore = 0;
+         * 
+         * // if first iteration of loop make the first child the bestChild if
+         * (bestChild == null) { bestChild = temp; highScore = temp.DoUCT(); } else //
+         * compare each child's UCT score with the UCT score of the bestChild. If //
+         * better, make it the new bestChild { double childUCT = temp.DoUCT(); if
+         * (childUCT > highScore) { bestChild = temp; highScore = childUCT; } } }
+         */
         return bestChild;
     }
 
