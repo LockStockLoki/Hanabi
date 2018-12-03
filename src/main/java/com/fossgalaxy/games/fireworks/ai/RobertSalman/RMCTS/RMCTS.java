@@ -66,8 +66,8 @@ public class RMCTS implements Agent {
             }
             deck.shuffle();
 
-            RMCTSNode currentNode = Select(rootNode, gameState);
-            int score = Simulate(gameState, agentID, currentNode);
+            RMCTSNode currentNode = Select(rootNode, currentState);
+            int score = Simulate(currentState, agentID, currentNode);
             currentNode.Reverse(score);
         }
 
