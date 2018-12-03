@@ -33,7 +33,19 @@ public class RMCTS implements Agent {
     @Override
     public Action doMove(int playerID, GameState gameState) 
     {
-        //TODO: Implement functionality for doMove().
+        long time = System.currentTimeMillis() + 950;//we have a second to do our move, but we don't want to get disqualified.
+
+        RMCTSNode rootNode = new RMCTSNode(null, (playerID + gameState.getPlayerCount() - 1) % gameState.getPlayerCount(), null, Utils.generateAllActions(playerID, gameState.getPlayerCount()));
+
+        Map<Integer, List<Card>> possibleCards = DeckUtils.bindCard(playerID, gameState.getHand(playerID), gameState.getDeck().toList());
+        List<Integer> bindOrder = DeckUtils.bindOrder(possibleCards);
+
+        while(System.currentTimeMillis() < time)
+        {
+            GameState currentState = gameState.getCopy()
+        }
+
+
         return null;
     }
 
@@ -97,10 +109,22 @@ public class RMCTS implements Agent {
         return child;
     }
 
-    protected int Simulate(GameState gameState, final int agentID, RMCTS currentNode)
+    protected int Simulate(GameState gameState, final int agentID, RMCTSNode currentNode)
     {
-        //TODO: Impletment simulate.
-        return -1;
+        int playerID;
+        int moves = 0;
+
+        while(!gameState.isGameOver())
+        {
+            Action action = SelectActionForSimulate(gameState, agentID);
+            List<GameEvent> event = action.apply(agentID, gameState);
+            gameState.tick();
+            playerID = NextAgentID(agentID, gameState.getPlayerCount());
+            moves++;
+        }
+
+        currentNode.ReverseSimulation(moves, gameState.getScore());
+        return gameState.getScore();
     }
 
     protected Action SelectActionForExpand(GameState gameState, RMCTSNode node, int nextAgentID)
@@ -131,7 +155,7 @@ public class RMCTS implements Agent {
         return actionList.get(0);
     }
 
-    int NextAgentID(int agentID, int playerCount)
+    static public int NextAgentID(int agentID, int playerCount)
     {
         return (agentID + 1) % playerCount;
     }

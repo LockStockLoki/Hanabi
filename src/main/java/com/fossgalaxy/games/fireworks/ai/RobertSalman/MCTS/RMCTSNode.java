@@ -54,14 +54,59 @@ public class RMCTSNode {
 
     public boolean FullyExpanded(GameState gameState)
     {
-        //TODO: Implement functionality for FullyExpanded()
-        return false;
+        int nextAgentID = RMCTS.NextAgentID(agentID, gameState.getPlayerCount());
+        if(allUnexpandedActions.isEmpty())
+        {
+            return true;
+        }
+
+        for(Action action : allUnexpandedActions)
+        {
+            if(action.isLegal(nextAgentID, gameState))
+            {
+                return false;
+            }
+        }
+
+        return true;//even if there are actions left they are not legal moves.
     }
     
+    int legal = 0;
     public RMCTSNode GetNextNode(GameState gameState)
     {
-        //TODO: Implement functionality for GetNextNode()
-        return null;
+        double bestScore = -Double.MAX_VALUE;
+        RMCTSNode bestChild = null;
+
+        for(RMCTSNode child : children)
+        {
+            Action move = child.transitionAction;
+            if(!move.isLegal(child.agentID, gameState))
+            {
+                continue;
+            }
+            
+            child.legal++;
+            
+            double childScore = GetUCBTValue();
+
+            if(childScore > bestScore)
+            {
+                bestScore = childScore;
+                bestChild = child;
+            }
+        }
+
+        return bestChild;
+    }
+
+    public double GetUCBTValue()
+    {
+        if(parentNode == null)
+        {
+            return 0;
+        }
+
+        return ((score/ maxScore) / visits) + (explorationFactor * Math.sqrt(Math.log(legal / visits)));
     }
 
     public int GetAgentID()
@@ -111,8 +156,26 @@ public class RMCTSNode {
         return false;
     }
 
+    public void Reverse(double score)
+    {
+        RMCTSNode currentNode = this;
+        while(currentNode != null)
+        {
+            currentNode.score += score;
+            currentNode.visits++;
+
+            currentNode = currentNode.parentNode;
+        }
+    }
+
     public void ReverseSimulation(int move, int score)
     {
+        simulateMoves.add(move);
+        simulateScores.add(score);
 
+        if(parentNode != null)
+        {
+            parentNode.ReverseSimulation(move, score);
+        }
     }
 }
