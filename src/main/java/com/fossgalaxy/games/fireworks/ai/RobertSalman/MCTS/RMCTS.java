@@ -31,22 +31,40 @@ public class RMCTS implements Agent {
     }
 
     @Override
-    public Action doMove(int playerID, GameState gameState) 
+    public Action doMove(int agentID, GameState gameState) 
     {
         long time = System.currentTimeMillis() + 950;//we have a second to do our move, but we don't want to get disqualified.
 
-        RMCTSNode rootNode = new RMCTSNode(null, (playerID + gameState.getPlayerCount() - 1) % gameState.getPlayerCount(), null, Utils.generateAllActions(playerID, gameState.getPlayerCount()));
+        RMCTSNode rootNode = new RMCTSNode(null, (agentID + gameState.getPlayerCount() - 1) % gameState.getPlayerCount(), null, Utils.generateAllActions(agentID, gameState.getPlayerCount()));
 
-        Map<Integer, List<Card>> possibleCards = DeckUtils.bindCard(playerID, gameState.getHand(playerID), gameState.getDeck().toList());
+        Map<Integer, List<Card>> possibleCards = DeckUtils.bindCard(agentID, gameState.getHand(agentID), gameState.getDeck().toList());
         List<Integer> bindOrder = DeckUtils.bindOrder(possibleCards);
 
         while(System.currentTimeMillis() < time)
         {
-            GameState currentState = gameState.getCopy()
+            GameState currentState = gameState.getCopy();
+            
+            Map<Integer, Card> myHand = DeckUtils.bindCards(bindOrder, possibleCards);
+
+            Deck deck = currentState.getDeck();
+            Hand hand = currentState.getHand(agentID);
+            
+            for(int i = 0; i < myHand.size(); i++)
+            {
+                Card card = myHand.get(i);
+                hand.bindCard(i, card);
+                deck.remove(card);
+            }
+            deck.shuffle();
+
+            RMCTSNode currentNode = Select(rootNode, gameState);
+            int score = Simulate(gameState, agentID, currentNode);
+            currentNode.Reverse(score);
         }
 
-
-        return null;
+        Action action = rootNode.GetNodeForPlay().GetAction();
+        
+        return action;
     }
 
     protected RMCTSNode Select(RMCTSNode rootNode, GameState gameState)
@@ -111,7 +129,7 @@ public class RMCTS implements Agent {
 
     protected int Simulate(GameState gameState, final int agentID, RMCTSNode currentNode)
     {
-        int playerID;
+        int agentID;
         int moves = 0;
 
         while(!gameState.isGameOver())
@@ -119,7 +137,7 @@ public class RMCTS implements Agent {
             Action action = SelectActionForSimulate(gameState, agentID);
             List<GameEvent> event = action.apply(agentID, gameState);
             gameState.tick();
-            playerID = NextAgentID(agentID, gameState.getPlayerCount());
+            agentID = NextAgentID(agentID, gameState.getPlayerCount());
             moves++;
         }
 

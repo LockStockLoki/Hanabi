@@ -71,6 +71,24 @@ public class RMCTSNode {
         return true;//even if there are actions left they are not legal moves.
     }
     
+    public RMCTSNode GetNodeForPlay()
+    {
+        double bestScore = -Double.MAX_VALUE;
+        RMCTSNode bestChild = null;
+
+        for(RMCTSNode child : children)
+        {
+            double childScore = child.score / child.visits + (random.nextDouble() * Epsilon);
+            if(childScore > bestScore)
+            {
+                bestScore = childScore;
+                bestChild = child;
+            }
+        }
+
+        return bestChild;
+    }
+
     int legal = 0;
     public RMCTSNode GetNextNode(GameState gameState)
     {
