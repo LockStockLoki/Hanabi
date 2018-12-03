@@ -1,4 +1,4 @@
-package com.fossgalaxy.games.fireworks.ai.RobertSalman.MCTS;
+package com.fossgalaxy.games.fireworks.ai.RobertSalman.RMCTS;
 
 import com.fossgalaxy.games.fireworks.state.GameState;
 import com.fossgalaxy.games.fireworks.state.actions.Action;

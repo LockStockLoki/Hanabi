@@ -1,4 +1,4 @@
-package com.fossgalaxy.games.fireworks.ai.RobertSalman.MCTS;
+package com.fossgalaxy.games.fireworks.ai.RobertSalman.RMCTS;
 
 import com.fossgalaxy.games.fireworks.ai.Agent;
 import com.fossgalaxy.games.fireworks.ai.iggi.Utils;
@@ -26,12 +26,6 @@ public class RMCTS implements Agent {
 
     public RMCTS()
     {
-        random = new Random();
-    }
-
-    public RMCTS(int roundLength) 
-    {
-        this.roundLength = roundLength;
         random = new Random();
     }
 

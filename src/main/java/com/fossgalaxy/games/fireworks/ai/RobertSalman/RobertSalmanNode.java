@@ -5,8 +5,6 @@ import com.fossgalaxy.games.fireworks.state.actions.Action;
 import com.fossgalaxy.stats.BasicStats;
 import com.fossgalaxy.stats.StatsSummary;
 
-import ch.qos.logback.core.pattern.parser.Node;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;

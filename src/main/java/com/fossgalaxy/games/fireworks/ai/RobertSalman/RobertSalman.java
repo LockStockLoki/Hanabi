@@ -3,7 +3,6 @@ package com.fossgalaxy.games.fireworks.ai.RobertSalman;
 import com.fossgalaxy.games.fireworks.ai.Agent;
 import com.fossgalaxy.games.fireworks.ai.iggi.Utils;
 import com.fossgalaxy.games.fireworks.ai.rule.logic.DeckUtils;
-import com.fossgalaxy.games.fireworks.annotations.AgentConstructor;
 import com.fossgalaxy.games.fireworks.state.Card;
 import com.fossgalaxy.games.fireworks.state.Deck;
 import com.fossgalaxy.games.fireworks.state.GameState;
@@ -11,13 +10,8 @@ import com.fossgalaxy.games.fireworks.state.Hand;
 import com.fossgalaxy.games.fireworks.state.actions.Action;
 import com.fossgalaxy.games.fireworks.state.events.GameEvent;
 
-import ch.qos.logback.classic.pattern.Util;
-
 import com.fossgalaxy.games.fireworks.ai.RobertSalman.RobertSalmanNode;
 
-import java.applet.Applet;
-import java.sql.Struct;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -35,7 +29,6 @@ public class RobertSalman implements Agent {
     private static final int defaultRolloutDepth = 18;
 
     private static final int defaultTreeDepthMultiplier = 1;
-    private int treeDepthMultiplier = 1;
 
     private Random random;
 
@@ -46,7 +39,6 @@ public class RobertSalman implements Agent {
     }
 
     public RobertSalman(int RoundLength, int RolloutDepth, int treeDepthMultiplier) {
-        this.treeDepthMultiplier = treeDepthMultiplier;
         random = new Random();
 
     }
@@ -62,15 +54,16 @@ public class RobertSalman implements Agent {
 
         Map<Integer, List<Card>> possibleCards = DeckUtils.bindCard(playerID, gameState.getHand(playerID),
                 gameState.getDeck().toList());
-
+        
+        List<Integer> bindOrder = DeckUtils.bindOrder(possibleCards);
         while (System.currentTimeMillis() < timeLimit) {
-            List<Integer> bindOrder = DeckUtils.bindOrder(possibleCards);
+            GameState currentState = gameState.getCopy();
             Map<Integer, Card> CardsInMyHand = DeckUtils.bindCards(bindOrder, possibleCards);
 
-            Deck deck = gameState.getDeck();
-            Hand myHand = gameState.getHand(playerID);
-            for (int cardSlot = 0; cardSlot < myHand.getSize(); cardSlot++) {
-                Card hand = myHand.getCard(cardSlot);
+            Deck deck = currentState.getDeck();
+            Hand myHand = currentState.getHand(playerID);
+            for (int cardSlot = 0; cardSlot < CardsInMyHand.size(); cardSlot++) {
+                Card hand = CardsInMyHand.get(cardSlot);
                 myHand.bindCard(cardSlot, hand);
                 deck.remove(hand);
             }
