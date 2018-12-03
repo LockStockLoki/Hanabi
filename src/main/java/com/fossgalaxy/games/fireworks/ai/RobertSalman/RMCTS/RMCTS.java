@@ -169,10 +169,22 @@ public class RMCTS implements Agent {
 
     protected Action SelectActionForSimulate(GameState gameState, int agentID)
     {
-        Collection<Action> legalActions = Utils.generateSuitableActions(agentID, gameState);
+        Collection<Action> legalActions = Utils.generateActions(agentID, gameState);
+        
         List<Action> actionList = new ArrayList<>(legalActions);
+
+        List<Action> legalActionList = new ArrayList<>(legalActions);
+        for(Action action : legalActionList)
+        {
+            if(!action.isLegal(agentID, gameState))
+            {
+                actionList.remove(action);
+            }
+        }
+
         Collections.shuffle(actionList);
-        return actionList.get(0);
+        
+        return legalActionList.get(0);
     }
 
     static public int NextAgentID(int agentID, int playerCount)
