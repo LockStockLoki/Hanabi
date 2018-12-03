@@ -22,8 +22,8 @@ public class RobertSalman implements Agent {
 
     public static boolean iterationsOrTime = true; //true for iterations, false for time.  The method the while loop uses in doMove.
     
-    public final static int iteration = 40;
-    public final static long defaultRuntime = 40;
+    public final static int iteration = 50000;
+    public final static long defaultRuntime = 1000;
     
     Random random;
     int roundLength;
@@ -53,10 +53,17 @@ public class RobertSalman implements Agent {
         Map<Integer, List<Card>> possibleCards = DeckUtils.bindCard(agentID, gameState.getHand(agentID), gameState.getDeck().toList());
         List<Integer> bindOrder = DeckUtils.bindOrder(possibleCards);
 
-        iterationsOrTime = false;
-        while(System.currentTimeMillis() < time)
-        //iterationsOrTime = true;
-        //for(int _iterations = 0; _iterations < iteration; _iterations++)
+        //the following loop has two methods of entry into it. The iteration based condition is
+        //to allow comparable data between machines without having to worry about hardware differences.
+        //
+        //when comparing on the same machine that is equipped with good cooling and airflow to avoid thermal throttling
+        //data may be improved by running a time based loop instead of iterations.
+        //
+        //To swap between these comment out the two lines you don't want to use.
+        iterationsOrTime = false;//<---------------------------------Time based
+        while(System.currentTimeMillis() < time)//<------------------Time based
+        //iterationsOrTime = true;//<-----------------------------------------------Iteration based
+        //for(int _iterations = 0; _iterations < iteration; _iterations++)//<-------Iteration based
         {
             GameState currentState = gameState.getCopy();
             
