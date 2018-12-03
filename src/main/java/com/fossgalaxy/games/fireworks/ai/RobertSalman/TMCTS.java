@@ -59,11 +59,8 @@ public class TMCTS implements Agent {
     @Override
     public Action doMove(int agentID, GameState state) {
         long finishTime = System.currentTimeMillis() + 1000;
-        TMCTSNode root = new TMCTSNode(
-                (agentID + state.getPlayerCount() - 1) % state.getPlayerCount(),
-                null,
-                Utils.generateAllActions(agentID, state.getPlayerCount())
-        );
+        
+        TMCTSNode root = new TMCTSNode((agentID + state.getPlayerCount() - 1) % state.getPlayerCount(), null, Utils.generateAllActions(agentID, state.getPlayerCount()));
 
         Map<Integer, List<Card>> possibleCards = DeckUtils.bindCard(agentID, state.getHand(agentID), state.getDeck().toList());
         List<Integer> bindOrder = DeckUtils.bindOrder(possibleCards);

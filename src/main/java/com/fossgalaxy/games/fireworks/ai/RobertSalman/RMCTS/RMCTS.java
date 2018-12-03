@@ -134,7 +134,9 @@ public class RMCTS implements Agent {
         while(!gameState.isGameOver())
         {
             Action action = SelectActionForSimulate(gameState, playerID);
-            List<GameEvent> event = action.apply(playerID, gameState);
+            ///////////////////////////////////////////////////////////
+            List<GameEvent> event = action.apply(playerID, gameState);// we are applying an action that causes a rule violation.
+            /////////////////////////////////////////////////////////// 
             event.forEach(gameState::addEvent);
             gameState.tick();
             playerID = NextAgentID(agentID, gameState.getPlayerCount());
@@ -167,7 +169,7 @@ public class RMCTS implements Agent {
 
     protected Action SelectActionForSimulate(GameState gameState, int agentID)
     {
-        Collection<Action> legalActions = Utils.generateActions(agentID, gameState);
+        Collection<Action> legalActions = Utils.generateSuitableActions(agentID, gameState);
         List<Action> actionList = new ArrayList<>(legalActions);
         Collections.shuffle(actionList);
         return actionList.get(0);

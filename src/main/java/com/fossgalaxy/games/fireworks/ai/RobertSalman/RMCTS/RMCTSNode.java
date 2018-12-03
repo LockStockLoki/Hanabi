@@ -46,6 +46,8 @@ public class RMCTSNode {
         this.score = 0;
         this.visits = 0;
 
+        random = new Random();
+
         simulateScores = new BasicStats();
         simulateMoves = new BasicStats();
     }
@@ -71,11 +73,20 @@ public class RMCTSNode {
     
     public RMCTSNode GetNodeForPlay()
     {
+        for(RMCTSNode child : children)
+        {
+            if(child == null)
+            {
+                System.out.println("Child was null");
+            }
+        }
+
         double bestScore = -Double.MAX_VALUE;
         RMCTSNode bestChild = null;
 
         for(RMCTSNode child : children)
         {
+            //double childScore = child.score / child.visits + (random.nextDouble() * Epsilon);
             double childScore = child.score / child.visits + (random.nextDouble() * Epsilon);
             if(childScore > bestScore)
             {
