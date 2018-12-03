@@ -3,6 +3,7 @@ package com.fossgalaxy.games.fireworks.ai;
 import com.fossgalaxy.games.fireworks.GameRunner;
 import com.fossgalaxy.games.fireworks.GameStats;
 import com.fossgalaxy.games.fireworks.ai.AgentPlayer;
+import com.fossgalaxy.games.fireworks.ai.RobertSalman.RobertSalman;
 import com.fossgalaxy.games.fireworks.players.Player;
 import com.fossgalaxy.games.fireworks.utils.AgentUtils;
 import com.fossgalaxy.stats.BasicStats;
@@ -41,5 +42,13 @@ public class App {
         // print out the stats
         System.out.println(String.format("Our agent: Avg: %f, min: %f, max: %f", statsSummary.getMean(),
                 statsSummary.getMin(), statsSummary.getMax()));
+        if(RobertSalman.iterationsOrTime)
+        {
+            System.out.println("This agent was run with an iteration based loop of " + RobertSalman.iteration + " iterations.");
+        }
+        if(!RobertSalman.iterationsOrTime)
+        {
+            System.out.println("This agent was run with a time based loop of " + RobertSalman.defaultRuntime + " milliseconds.");
+        }
     }
 }

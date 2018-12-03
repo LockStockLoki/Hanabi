@@ -20,7 +20,11 @@ import java.util.Iterator;
 
 public class RobertSalman implements Agent {
 
-    private final long defaultRuntime = 950;
+    public static boolean iterationsOrTime = true; //true for iterations, false for time.  The method the while loop uses in doMove.
+    
+    public final static int iteration = 40;
+    public final static long defaultRuntime = 40;
+    
     Random random;
     int roundLength;
 
@@ -49,7 +53,10 @@ public class RobertSalman implements Agent {
         Map<Integer, List<Card>> possibleCards = DeckUtils.bindCard(agentID, gameState.getHand(agentID), gameState.getDeck().toList());
         List<Integer> bindOrder = DeckUtils.bindOrder(possibleCards);
 
+        iterationsOrTime = false;
         while(System.currentTimeMillis() < time)
+        //iterationsOrTime = true;
+        //for(int _iterations = 0; _iterations < iteration; _iterations++)
         {
             GameState currentState = gameState.getCopy();
             
