@@ -1,0 +1,3 @@
+﻿  ModulusChecker.cpp
+c:\users\rober\source\repos\moduluschecker\moduluschecker.cpp(12): warning C4101: 'exit': unreferenced local variable
+  ModulusChecker.vcxproj -> C:\Users\rober\source\repos\ModulusChecker\Debug\ModulusChecker.exe
