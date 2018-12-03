@@ -10,6 +10,16 @@ import com.fossgalaxy.stats.BasicStats;
 import com.fossgalaxy.stats.StatsSummary;
 
 import java.util.Random;
+import java.io.FileWriter;
+import java.io.File;
+import java.io.IOException;
+import java.io.BufferedWriter;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.json.JSONObject;
+
 
 /**
  * Game runner for testing.
@@ -17,7 +27,7 @@ import java.util.Random;
  * This will run a bunch of games with your agent so you can see how it does.
  */
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         int numPlayers = 5;
         int numGames = 1;
         String agentName = "RobertSalman";
@@ -25,9 +35,18 @@ public class App {
         Random random = new Random();
         StatsSummary statsSummary = new BasicStats();
 
+        JSONObject JsonObject = new JSONObject();
+        int currentGame;
+
+        Date date = new Date() ;
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss") ;
+        File file = new File("C:/Users/rober/OneDrive/Old/Documents/University of Essex/CE811/Hanabi/Data/" + dateFormat.format(date) + ".txt") ;
+        BufferedWriter out = new BufferedWriter(new FileWriter(file));
+
         for (int i = 0; i < numGames; i++) {
             GameRunner runner = new GameRunner("test-game", numPlayers);
-
+            currentGame = i;
+            System.out.println("Game #" + currentGame);
             // add your agents to the game
             for (int j = 0; j < numPlayers; j++) {
                 // the player class keeps track of our state for us...
@@ -44,11 +63,19 @@ public class App {
                 statsSummary.getMin(), statsSummary.getMax()));
         if(RobertSalman.iterationsOrTime)
         {
-            System.out.println("This agent was run with an iteration based loop of " + RobertSalman.iteration + " iterations.");
+            String string = "This agent was run with an iteration based loop of " + RobertSalman.iteration + " iterations.";
+            System.out.print(string);
+            out.write(string);
         }
         if(!RobertSalman.iterationsOrTime)
         {
-            System.out.println("This agent was run with a time based loop of " + RobertSalman.defaultRuntime + " milliseconds.");
+            String string = "This agent was run with a time based loop of " + RobertSalman.defaultRuntime + " milliseconds.";
+            System.out.print(string);
+            out.write(string);
+            
         }
+        out.newLine();
+        out.write(String.format("Our agent: Avg: %f, min: %f, max: %f", statsSummary.getMean(), statsSummary.getMin(), statsSummary.getMax()));
+        out.close();
     }
 }
