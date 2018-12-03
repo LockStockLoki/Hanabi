@@ -18,7 +18,7 @@ import java.util.Random;
 public class App {
     public static void main(String[] args) {
         int numPlayers = 5;
-        int numGames = 200;
+        int numGames = 20;
         String agentName = "TMCTS";
 
         Random random = new Random();
