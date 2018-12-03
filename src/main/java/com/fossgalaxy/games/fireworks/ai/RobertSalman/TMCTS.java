@@ -68,27 +68,6 @@ public class TMCTS implements Agent {
         Map<Integer, List<Card>> possibleCards = DeckUtils.bindCard(agentID, state.getHand(agentID), state.getDeck().toList());
         List<Integer> bindOrder = DeckUtils.bindOrder(possibleCards);
 
-
-        if (logger.isTraceEnabled()) {
-            logger.trace("Possible bindings: ");
-            possibleCards.forEach((slot, cards) -> logger.trace("\t {} {}", slot, DebugUtils.getHistStr(DebugUtils.histogram(cards))));
-
-            // Guaranteed cards
-            logger.trace("Guaranteed Cards");
-
-            possibleCards.entrySet().stream()
-                    .filter(x -> x.getValue().size() == 1)
-                    .forEach(this::printCard);
-
-            logger.trace("We know the value of these");
-            possibleCards.entrySet().stream()
-                    .filter(x -> x.getValue().stream().allMatch(y -> y.value.equals(x.getValue().get(0).value)))
-                    .forEach(this::printCard);
-
-            DebugUtils.printTable(logger, state);
-        }
-
-//        for (int round = 0; round < roundLength; round++) {
         while(System.currentTimeMillis() < finishTime){
             //find a leaf node
             GameState currentState = state.getCopy();

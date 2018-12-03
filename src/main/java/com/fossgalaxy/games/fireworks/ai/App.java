@@ -18,8 +18,8 @@ import java.util.Random;
 public class App {
     public static void main(String[] args) {
         int numPlayers = 5;
-        int numGames = 20;
-        String agentName = "TMCTS";
+        int numGames = 1;
+        String agentName = "RMCTS";
 
         Random random = new Random();
         StatsSummary statsSummary = new BasicStats();
