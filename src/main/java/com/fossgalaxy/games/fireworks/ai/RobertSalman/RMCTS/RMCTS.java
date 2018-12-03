@@ -32,6 +32,16 @@ public class RMCTS implements Agent {
     @Override
     public Action doMove(int agentID, GameState gameState) 
     {
+        System.out.println("I am agent #"+ agentID + ".");
+        
+        for(int i = 0; i < gameState.getPlayerCount(); i++)
+        {  
+            Hand hand = gameState.getHand(i);
+            System.out.print("AgentID is " + i + " ");
+            System.out.println(hand.toString());
+        }
+        
+        
         long time = System.currentTimeMillis() + defaultRuntime;//we have a second to do our move, but we don't want to get disqualified.
 
         RMCTSNode rootNode = new RMCTSNode(null, (agentID + gameState.getPlayerCount() - 1) % gameState.getPlayerCount(), null, Utils.generateAllActions(agentID, gameState.getPlayerCount()));
