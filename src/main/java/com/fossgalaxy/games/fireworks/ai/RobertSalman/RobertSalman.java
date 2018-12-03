@@ -10,181 +10,195 @@ import com.fossgalaxy.games.fireworks.state.Hand;
 import com.fossgalaxy.games.fireworks.state.actions.Action;
 import com.fossgalaxy.games.fireworks.state.events.GameEvent;
 
-import com.fossgalaxy.games.fireworks.ai.RobertSalman.RobertSalmanNode;
-
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Iterator;
 
-/**
- * A simple agent that performs a random move.
- *
- * <b>IMPORTANT</b> You should rename this agent to your username
- */
-
 public class RobertSalman implements Agent {
-    private static final int defaultIterations = 50000;
-    private static final int defaultRolloutDepth = 18;
 
-    private static final int defaultTreeDepthMultiplier = 1;
+    private final long defaultRuntime = 950;
+    Random random;
+    int roundLength;
 
-    private Random random;
-
-    int depth;
-
-    public RobertSalman() {
-        this(defaultIterations, defaultRolloutDepth, defaultTreeDepthMultiplier);
-    }
-
-    public RobertSalman(int RoundLength, int RolloutDepth, int treeDepthMultiplier) {
+    public RobertSalman()
+    {
         random = new Random();
-
     }
 
     @Override
-    public Action doMove(int playerID, GameState gameState) {
-        long timeLimit = System.currentTimeMillis() + 1000; // one second time budget
-
-        RobertSalmanNode rootNode = new RobertSalmanNode(null,
-                (playerID + gameState.getPlayerCount() - 1) % gameState.getPlayerCount(), null,
-                Utils.generateAllActions(playerID, gameState.getPlayerCount())); // declares root node. Parent and
-                                                                                 // action is null
-
-        Map<Integer, List<Card>> possibleCards = DeckUtils.bindCard(playerID, gameState.getHand(playerID),
-                gameState.getDeck().toList());
+    public Action doMove(int agentID, GameState gameState) 
+    {
+        System.out.println("I am agent #"+ agentID + ".");
         
+        for(int i = 0; i < gameState.getPlayerCount(); i++)
+        {  
+            Hand hand = gameState.getHand(i);
+            System.out.print("AgentID is " + i + " ");
+            System.out.println(hand.toString());
+        }
+        
+        
+        long time = System.currentTimeMillis() + defaultRuntime;//we have a second to do our move, but we don't want to get disqualified.
+
+        RobertSalmanNode rootNode = new RobertSalmanNode(null, (agentID + gameState.getPlayerCount() - 1) % gameState.getPlayerCount(), null, Utils.generateAllActions(agentID, gameState.getPlayerCount()));
+
+        Map<Integer, List<Card>> possibleCards = DeckUtils.bindCard(agentID, gameState.getHand(agentID), gameState.getDeck().toList());
         List<Integer> bindOrder = DeckUtils.bindOrder(possibleCards);
-        while (System.currentTimeMillis() < timeLimit) {
+
+        while(System.currentTimeMillis() < time)
+        {
             GameState currentState = gameState.getCopy();
-            Map<Integer, Card> CardsInMyHand = DeckUtils.bindCards(bindOrder, possibleCards);
+            
+            Map<Integer, Card> myHand = DeckUtils.bindCards(bindOrder, possibleCards);
 
             Deck deck = currentState.getDeck();
-            Hand myHand = currentState.getHand(playerID);
-            for (int cardSlot = 0; cardSlot < CardsInMyHand.size(); cardSlot++) {
-                Card hand = CardsInMyHand.get(cardSlot);
-                myHand.bindCard(cardSlot, hand);
-                deck.remove(hand);
+            Hand hand = currentState.getHand(agentID);
+            
+            for(int i = 0; i < myHand.size(); i++)
+            {
+                Card card = myHand.get(i);
+                hand.bindCard(i, card);
+                deck.remove(card);
             }
             deck.shuffle();
-            RobertSalmanNode selectedNode = Select(rootNode, gameState);
-            int score = Simulate(gameState, playerID, selectedNode);
-            selectedNode.TreeBackPropagation(score);
+
+            RobertSalmanNode currentNode = Select(rootNode, currentState);
+            int score = Simulate(currentState, agentID, currentNode);
+            currentNode.Reverse(score);
         }
-        return rootNode.GetFinalBestNode().GetAction();
+
+        Action action = rootNode.GetNodeForPlay().GetAction();
+        
+        return action;
     }
 
-    protected RobertSalmanNode Select(RobertSalmanNode root, GameState state) {
-        RobertSalmanNode currentNode = root;
-
-        // as long as the game isn't over and we haven't
-        // spent too many cyclyes looking at this tree, let's
-        // select another node
-        while (!state.isGameOver()) {
+    protected RobertSalmanNode Select(RobertSalmanNode rootNode, GameState gameState)
+    {
+        RobertSalmanNode currentNode = rootNode;
+        
+        while(!gameState.isGameOver())
+        {
             RobertSalmanNode nextNode;
 
-            // Current node has been expansed fully, now we need to expand another node as
-            // we still have time.
-            if (currentNode.FullyExpanded(state)) {
-                nextNode = currentNode.UCTTraversal(state);
+            if(currentNode.FullyExpanded(gameState))
+            {
+                //Current node is fully expanded, now we need to get the next node.
+                nextNode = currentNode.GetNextNode(gameState);  
             }
-            // Node is not fully expanded so we expand it until it is.
-            else {
-                nextNode = Expand(currentNode, state);
-                return nextNode;
+            else
+            {
+                //Current node is not fully expanded, so we can expand this one.
+                nextNode = Expand(currentNode, gameState);
             }
-            // We are a leaf node
-            if (nextNode == null) {
+            if(nextNode == null)
+            {
+                //We are at a leaf node.
                 return currentNode;
             }
 
             currentNode = nextNode;
 
+            int agentID = currentNode.GetAgentID();
+
             Action action = currentNode.GetAction();
-            if (action != null) {
-                List<GameEvent> events = action.apply(currentNode.GetAgentID(), state);
-                events.forEach(state::addEvent);
-                state.tick();
-            }
+            if(action != null)
+            {
+                List<GameEvent> events = action.apply(agentID, gameState);
+                events.forEach(gameState::addEvent);
+                gameState.tick();
+            }    
         }
         return currentNode;
     }
 
-    protected Action SelectActionForExpand(GameState state, RobertSalmanNode node, int agentID) {
-        Collection<Action> actions = node.GetLegalMoves(state, agentID);
-        // there are no actions we can use to expand, therefore we have nothing to
-        // return
-        if (actions.isEmpty()) {
-            return null;
-        }
+    protected RobertSalmanNode Expand(RobertSalmanNode parentNode, GameState gameState)
+    {
+        int nextAgentID = NextAgentID(parentNode.GetAgentID(), gameState.getPlayerCount());
 
-        Iterator<Action> actionIterator = actions.iterator();// iterate over the collection of actions declared closeby
-        int selectedActionID = random.nextInt(actions.size());
-
-        // Access and return the next action, iterating through it with a for loop to
-        // access it.
-        Action currentAction = actionIterator.next();
-        for (int i = 0; i < selectedActionID; i++) {
-            currentAction = actionIterator.next();
-        }
-
-        return currentAction;
-    }
-
-    protected RobertSalmanNode Expand(RobertSalmanNode parentNode, GameState gameState) {
-        int nextAgentID = GetNextAgentID(gameState, parentNode);
         Action action = SelectActionForExpand(gameState, parentNode, nextAgentID);
-        if (action == null) {
+        if(action == null)
+        {
             return parentNode;
         }
-        if (parentNode.ContainsChild(action)) {
+        
+        if(parentNode.ContainsChild(action))
+        {
             return parentNode.GetChild(action);
         }
 
-        RobertSalmanNode child = new RobertSalmanNode(parentNode, nextAgentID, action,
-                Utils.generateAllActions(nextAgentID, gameState.getPlayerCount()));
-        parentNode.AddChildNode(child);
-
+        RobertSalmanNode child = new RobertSalmanNode(parentNode, nextAgentID, action, Utils.generateAllActions(nextAgentID, gameState.getPlayerCount()));
+        parentNode.AddChild(child);
+        
         return child;
     }
 
-    public int GetNextAgentID(GameState gameState, RobertSalmanNode parentNode) {
-        return (parentNode.GetAgentID() + 1) % gameState.getPlayerCount();
-    }
-
-    Action ActionForSimulate(GameState gameState, int playerID) {
-        Collection<Action> actions = Utils.generateActions(playerID, gameState);
-
-        Iterator<Action> actionIterator = actions.iterator();
-        int selectedActionID = random.nextInt(actions.size());
-
-        Action currentAction = actionIterator.next();
-        for (int i = 0; i < selectedActionID; i++) {
-            currentAction = actionIterator.next();
-        }
-
-        return currentAction;
-
-    }
-
-    int Simulate(GameState gameState, int agentID, RobertSalmanNode currentNode) {
+    protected int Simulate(GameState gameState, final int agentID, RobertSalmanNode currentNode)
+    {
         int playerID = agentID;
-        int steps = 0;
-        Action action;
-        while (!gameState.isGameOver()) {
-            action = ActionForSimulate(gameState, playerID);
-            List<GameEvent> gameEvents = action.apply(playerID, gameState);
-            for (GameEvent event : gameEvents) {
-                gameState.addEvent(event);
+        int moves = 0;
 
-            }
+        while(!gameState.isGameOver())
+        {
+            Action action = SelectActionForSimulate(gameState, playerID);
+            ///////////////////////////////////////////////////////////
+            List<GameEvent> event = action.apply(playerID, gameState);// we were dumb. It wasn't this.
+            /////////////////////////////////////////////////////////// 
+            event.forEach(gameState::addEvent);
             gameState.tick();
-            playerID = GetNextAgentID(gameState, currentNode);
-            steps++;
+            playerID = NextAgentID(agentID, gameState.getPlayerCount());
+            moves++;
         }
-        currentNode.SimulationBackPropagation(steps, gameState.getScore());
+
+        currentNode.ReverseSimulation(moves, gameState.getScore());
         return gameState.getScore();
     }
 
+    protected Action SelectActionForExpand(GameState gameState, RobertSalmanNode node, int nextAgentID)
+    {
+        Collection<Action> legalActions = node.GetLegalActions(gameState, nextAgentID);
+        if(legalActions.isEmpty())
+        {
+            return null;
+        }
+        
+        Iterator<Action> actionIterator = legalActions.iterator();
+
+        int selected = random.nextInt(legalActions.size());
+        Action action = actionIterator.next();
+        for(int i = 0; i < selected; i++)
+        {
+            action = actionIterator.next();
+        }
+
+        return action;
+    }
+
+    protected Action SelectActionForSimulate(GameState gameState, int agentID)
+    {
+        Collection<Action> legalActions = Utils.generateActions(agentID, gameState);
+        
+        List<Action> actionList = new ArrayList<>(legalActions);
+
+        List<Action> legalActionList = new ArrayList<>(legalActions);
+        for(Action action : legalActionList)
+        {
+            if(!action.isLegal(agentID, gameState))
+            {
+                actionList.remove(action);
+            }
+        }
+
+        Collections.shuffle(actionList);
+        
+        return legalActionList.get(0);
+    }
+
+    static public int NextAgentID(int agentID, int playerCount)
+    {
+        return (agentID + 1) % playerCount;
+    }
 }
