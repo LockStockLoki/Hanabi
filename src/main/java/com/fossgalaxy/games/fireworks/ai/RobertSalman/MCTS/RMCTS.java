@@ -20,9 +20,14 @@ import java.util.Iterator;
 
 public class RMCTS implements Agent {
 
-    private final long defaultRuntime = 1000;
+    private final long defaultRuntime = 950;
     Random random;
     int roundLength;
+
+    public RMCTS()
+    {
+        random = new Random();
+    }
 
     public RMCTS(int roundLength) 
     {
@@ -33,7 +38,7 @@ public class RMCTS implements Agent {
     @Override
     public Action doMove(int agentID, GameState gameState) 
     {
-        long time = System.currentTimeMillis() + 950;//we have a second to do our move, but we don't want to get disqualified.
+        long time = System.currentTimeMillis() + defaultRuntime;//we have a second to do our move, but we don't want to get disqualified.
 
         RMCTSNode rootNode = new RMCTSNode(null, (agentID + gameState.getPlayerCount() - 1) % gameState.getPlayerCount(), null, Utils.generateAllActions(agentID, gameState.getPlayerCount()));
 
@@ -129,15 +134,16 @@ public class RMCTS implements Agent {
 
     protected int Simulate(GameState gameState, final int agentID, RMCTSNode currentNode)
     {
-        int agentID;
+        int playerID = agentID;
         int moves = 0;
 
         while(!gameState.isGameOver())
         {
-            Action action = SelectActionForSimulate(gameState, agentID);
-            List<GameEvent> event = action.apply(agentID, gameState);
+            Action action = SelectActionForSimulate(gameState, playerID);
+            List<GameEvent> event = action.apply(playerID, gameState);
+            event.forEach(gameState::addEvent);
             gameState.tick();
-            agentID = NextAgentID(agentID, gameState.getPlayerCount());
+            playerID = NextAgentID(agentID, gameState.getPlayerCount());
             moves++;
         }
 
@@ -177,4 +183,4 @@ public class RMCTS implements Agent {
     {
         return (agentID + 1) % playerCount;
     }
-}s
+}

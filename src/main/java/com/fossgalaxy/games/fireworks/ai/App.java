@@ -19,7 +19,7 @@ public class App {
     public static void main(String[] args) {
         int numPlayers = 5;
         int numGames = 1;
-        String agentName = "RobertSalman";
+        String agentName = "RMCTS";
 
         Random random = new Random();
         StatsSummary statsSummary = new BasicStats();
