@@ -20,10 +20,12 @@ import java.util.Iterator;
 
 public class RobertSalman implements Agent {
 
+    boolean debug = false;
+    
     public static boolean iterationsOrTime = true; //true for iterations, false for time.  The method the while loop uses in doMove.
     
     public final static int iteration = 50000;
-    public final static long defaultRuntime = 40;
+    public final static long defaultRuntime = 1000;
     
     Random random;
     int roundLength;
@@ -32,17 +34,20 @@ public class RobertSalman implements Agent {
     {
         random = new Random();
     }
-    
+
     @Override
     public Action doMove(int agentID, GameState gameState) 
-    {
-        System.out.println("I am agent #"+ agentID + ".");
-        
-        for(int i = 0; i < gameState.getPlayerCount(); i++)
-        {  
-            Hand hand = gameState.getHand(i);
-            System.out.print("AgentID is " + i + " ");
-            System.out.println(hand.toString());
+    {        
+        if(debug)
+        {
+            System.out.println("I am agent #"+ agentID + ".");
+            
+            for(int i = 0; i < gameState.getPlayerCount(); i++)
+            {  
+                Hand hand = gameState.getHand(i);
+                System.out.print("AgentID is " + i + " ");
+                System.out.println(hand.toString());
+            }
         }
         
         
