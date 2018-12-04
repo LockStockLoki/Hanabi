@@ -32,7 +32,7 @@ public class RobertSalman implements Agent {
     {
         random = new Random();
     }
-
+    
     @Override
     public Action doMove(int agentID, GameState gameState) 
     {

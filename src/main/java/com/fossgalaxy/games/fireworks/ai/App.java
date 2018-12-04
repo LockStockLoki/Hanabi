@@ -10,16 +10,10 @@ import com.fossgalaxy.stats.BasicStats;
 import com.fossgalaxy.stats.StatsSummary;
 
 import java.util.Random;
-import java.io.FileWriter;
-import java.io.File;
-import java.io.IOException;
-import java.io.BufferedWriter;
-
+import java.io.*;
 import java.text.SimpleDateFormat;
+import java.time.LocalTime;
 import java.util.Date;
-
-import org.json.JSONObject;
-
 
 /**
  * Game runner for testing.
@@ -34,14 +28,16 @@ public class App {
 
         Random random = new Random();
         StatsSummary statsSummary = new BasicStats();
-
-        JSONObject JsonObject = new JSONObject();
         int currentGame;
 
         Date date = new Date() ;
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss") ;
-        File file = new File("C:/Users/rober/OneDrive/Old/Documents/University of Essex/CE811/Hanabi/Data/" + dateFormat.format(date) + ".txt") ;
+        File file = new File("./Data/" + dateFormat.format(date) + ".txt") ;
+        LocalTime time = java.time.LocalTime.now();
         BufferedWriter out = new BufferedWriter(new FileWriter(file));
+
+        String filePath = "./Data/Data.txt";
+        FileWriter dataFile = new FileWriter(filePath, true);
 
         for (int i = 0; i < numGames; i++) {
             GameRunner runner = new GameRunner("test-game", numPlayers);
@@ -77,5 +73,10 @@ public class App {
         out.newLine();
         out.write(String.format("Our agent: Avg: %f, min: %f, max: %f", statsSummary.getMean(), statsSummary.getMin(), statsSummary.getMax()));
         out.close();
+
+        String dataAppend = "Game: " + time + " score: " + statsSummary.getMean();
+        dataFile.append(dataAppend);
+        dataFile.append(System.lineSeparator());
+        dataFile.close();
     }
 }
