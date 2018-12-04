@@ -71,6 +71,10 @@ public class App {
             
         }
         out.newLine();
+        out.write("Number of players: " + numPlayers);
+        out.newLine();
+        out.write("Number of games played: " + numGames);
+        out.newLine();
         out.write(String.format("Our agent: Avg: %f, min: %f, max: %f", statsSummary.getMean(), statsSummary.getMin(), statsSummary.getMax()));
         out.close();
 
