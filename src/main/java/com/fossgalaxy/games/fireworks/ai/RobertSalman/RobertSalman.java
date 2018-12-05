@@ -178,6 +178,7 @@ public class RobertSalman implements Agent {
     }
     
     boolean gameStateTriggered = false;
+    boolean simBool = false;
     protected int Simulate(GameState gameState, final int agentID, RobertSalmanNode currentNode)
     {
         int playerID = agentID;
@@ -191,6 +192,11 @@ public class RobertSalman implements Agent {
        }
         while(!gameState.isGameOver())
         {
+            if (!simBool)
+            {
+            System.out.println("I am in the simulate loop");
+            simBool = true;
+            }
             Action action = SelectActionForSimulate(gameState, playerID);
             List<GameEvent> event = action.apply(playerID, gameState); 
             event.forEach(gameState::addEvent);

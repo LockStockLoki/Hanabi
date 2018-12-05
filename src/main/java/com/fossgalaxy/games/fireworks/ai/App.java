@@ -24,7 +24,7 @@ public class App {
     public static void main(String[] args) throws IOException {
         int numPlayers = 5;
         int numGames = 2;
-        String agentName = "RobertSalmanPolicy";
+        String agentName = "RobertSalman";
 
         Random random = new Random();
         StatsSummary statsSummary = new BasicStats();
