@@ -1,2 +1,0 @@
-This agent was run with a time based loop of 40 milliseconds.
-Our agent: Avg: 2.000000, min: 2.000000, max: 2.000000

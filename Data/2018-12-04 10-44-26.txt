@@ -1,4 +1,0 @@
-This agent was run with a time based loop of 40 milliseconds.
-Number of players: 5
-Number of games played: 1
-Our agent: Avg: 5.000000, min: 5.000000, max: 5.000000

@@ -23,8 +23,8 @@ import java.util.Date;
 public class App {
     public static void main(String[] args) throws IOException {
         int numPlayers = 5;
-        int numGames = 200;
-        String agentName = "RobertSalman";
+        int numGames = 5;
+        String agentName = "RobertSalmanPolicy";
 
         Random random = new Random();
         StatsSummary statsSummary = new BasicStats();
@@ -36,7 +36,7 @@ public class App {
         LocalTime time = java.time.LocalTime.now();
         BufferedWriter out = new BufferedWriter(new FileWriter(file));
 
-        String filePath = "./Data/Data.txt";
+        String filePath = "./Data/"+agentName+"Data.txt";
         FileWriter dataFile = new FileWriter(filePath, true);
 
         for (int i = 0; i < numGames; i++) {
@@ -55,8 +55,10 @@ public class App {
         }
 
         // print out the stats
-        System.out.println(String.format("Our agent: Avg: %f, min: %f, max: %f", statsSummary.getMean(),
-                statsSummary.getMin(), statsSummary.getMax()));
+        System.out.println(String.format("Our agent: Avg: %f, min: %f, max: %f", statsSummary.getMean(), statsSummary.getMin(), statsSummary.getMax()));
+        
+        out.write("Agent is: "+agentName+ ".");
+        out.write(System.lineSeparator());
         if(RobertSalman.iterationsOrTime)
         {
             String string = "This agent was run with an iteration based loop of " + RobertSalman.iteration + " iterations.";
