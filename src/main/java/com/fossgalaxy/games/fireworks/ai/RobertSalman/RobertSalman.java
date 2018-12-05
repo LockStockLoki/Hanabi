@@ -20,7 +20,7 @@ import java.util.Iterator;
 
 public class RobertSalman implements Agent {
 
-    boolean debug = false;
+    boolean debug = true;
     
     public static boolean iterationsOrTime = true; //true for iterations, false for time.  The method the while loop uses in doMove.
     
@@ -87,6 +87,7 @@ public class RobertSalman implements Agent {
 
             RobertSalmanNode currentNode = Select(rootNode, currentState);
             int score = Simulate(currentState, agentID, currentNode);
+
             currentNode.Reverse(score);
         }
 
@@ -95,10 +96,21 @@ public class RobertSalman implements Agent {
         return action;
     }
 
+
     protected RobertSalmanNode Select(RobertSalmanNode rootNode, GameState gameState)
     {
         RobertSalmanNode currentNode = rootNode;
+    
+        /*if(!gameStateTriggered)
+        {
+           System.out.println(gameState.isGameOver());
+           System.out.println(gameState.getLives()); 
+        }*/
         
+        //used in the while loop.
+        int agentID;
+        Action action;
+
         while(!gameState.isGameOver())
         {
             RobertSalmanNode nextNode;
@@ -112,6 +124,17 @@ public class RobertSalman implements Agent {
             {
                 //Current node is not fully expanded, so we can expand this one.
                 nextNode = Expand(currentNode, gameState);
+                
+                agentID = nextNode.GetAgentID();
+                action = nextNode.GetAction();
+
+                if(action != null)// we need to apply the action and advance the game state befor we return
+                {
+                    List<GameEvent> events = action.apply(agentID, gameState);
+                    events.forEach(gameState::addEvent);
+                    gameState.tick();
+                } 
+                return nextNode;//we need this return to for select to work.
             }
             if(nextNode == null)
             {
@@ -121,9 +144,8 @@ public class RobertSalman implements Agent {
 
             currentNode = nextNode;
 
-            int agentID = currentNode.GetAgentID();
-
-            Action action = currentNode.GetAction();
+            agentID = nextNode.GetAgentID();
+            action = nextNode.GetAction();
             if(action != null)
             {
                 List<GameEvent> events = action.apply(agentID, gameState);
@@ -154,18 +176,23 @@ public class RobertSalman implements Agent {
         
         return child;
     }
-
+    
+    boolean gameStateTriggered = false;
     protected int Simulate(GameState gameState, final int agentID, RobertSalmanNode currentNode)
     {
         int playerID = agentID;
         int moves = 0;
-
+        
+       if(!gameStateTriggered)
+       {
+        System.out.println(gameState.isGameOver());        
+        System.out.println("lives:" +gameState.getLives());
+        gameStateTriggered = true;
+       }
         while(!gameState.isGameOver())
         {
             Action action = SelectActionForSimulate(gameState, playerID);
-            ///////////////////////////////////////////////////////////
-            List<GameEvent> event = action.apply(playerID, gameState);// we were dumb. It wasn't this.
-            /////////////////////////////////////////////////////////// 
+            List<GameEvent> event = action.apply(playerID, gameState); 
             event.forEach(gameState::addEvent);
             gameState.tick();
             playerID = NextAgentID(agentID, gameState.getPlayerCount());

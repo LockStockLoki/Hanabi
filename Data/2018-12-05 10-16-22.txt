@@ -1,0 +1,5 @@
+Agent is: RobertSalmanPolicy.
+This agent was run with a time based loop of 1000 milliseconds.
+Number of players: 5
+Number of games played: 1
+Our agent: Avg: 4.000000, min: 4.000000, max: 4.000000
