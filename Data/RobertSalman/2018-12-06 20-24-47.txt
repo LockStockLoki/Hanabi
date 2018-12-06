@@ -1,7 +1,7 @@
 Agent is: RobertSalman.
 This agent was run with an iteration based loop of 15000 iterations.
-The Exploration Factor used was: 0.0070000007
+The Exploration Factor used was: 0.003
 Number of players: 5
-Number of games played: 5
+Number of games played: 200
 Maximum depth of simulate(): 30
-Our agent: Avg: 6.400000, min: 3.000000, max: 11.000000
+Our agent: Avg: 5.000000, min: 1.000000, max: 18.000000

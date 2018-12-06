@@ -25,7 +25,7 @@ import java.util.Date;
 public class App {
     public static void main(String[] args) throws IOException {
         int numPlayers = 5;
-        int numGames = 5;//number of games per run
+        int numGames = 200;//number of games per run
         String[] agentName = {"RobertSalman", "cautious", "flawed", "iggi", "iggi2"};
         String ourAgent = agentName[0];
 
