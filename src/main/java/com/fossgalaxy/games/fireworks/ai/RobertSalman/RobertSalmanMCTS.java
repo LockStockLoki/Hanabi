@@ -65,10 +65,10 @@ public class RobertSalmanMCTS implements Agent {
         //data may be improved by running a time based loop instead of iterations.
         //
         //To swap between these comment out the two lines you don't want to use.
-        iterationsOrTime = false;//<---------------------------------Time based
-        while(System.currentTimeMillis() < time)//<------------------Time based
-        //iterationsOrTime = true;//<-----------------------------------------------Iteration based
-        //for(int _iterations = 0; _iterations < iteration; _iterations++)//<-------Iteration based
+        //iterationsOrTime = false;//<---------------------------------Time based
+        //while(System.currentTimeMillis() < time)//<------------------Time based
+        iterationsOrTime = true;//<-----------------------------------------------Iteration based
+        for(int _iterations = 0; _iterations < iteration; _iterations++)//<-------Iteration based
         {
             GameState currentState = gameState.getCopy();
             
@@ -180,7 +180,6 @@ public class RobertSalmanMCTS implements Agent {
     {
         int playerID = agentID;
         int moves = 0;
-        int depthLimit = 0;
        if(!gameStateTriggered)
        {
         System.out.println(gameState.isGameOver());        
