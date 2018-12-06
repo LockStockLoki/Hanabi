@@ -54,7 +54,7 @@ public class RobertSalmanNode {
 
     public boolean FullyExpanded(GameState gameState)
     {
-        int nextAgentID = RobertSalman.NextAgentID(agentID, gameState.getPlayerCount());
+        int nextAgentID = RobertSalmanMCTS.NextAgentID(agentID, gameState.getPlayerCount());
         if(allUnexpandedActions.isEmpty())
         {
             return true;

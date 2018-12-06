@@ -23,7 +23,7 @@ import java.util.Date;
 public class App {
     public static void main(String[] args) throws IOException {
         int numPlayers = 5;
-        int numGames = 1;
+        int numGames = 10;
         String agentName = "RobertSalman";
 
         Random random = new Random();
