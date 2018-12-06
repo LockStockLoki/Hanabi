@@ -13,7 +13,7 @@ import com.fossgalaxy.stats.StatsSummary;
 import java.util.Random;
 import java.io.*;
 import java.text.SimpleDateFormat;
-import java.time.LocalTime;
+import java.time.LocalTime; 
 import java.util.Date;
 
 /**
@@ -24,7 +24,7 @@ import java.util.Date;
 public class App {
     public static void main(String[] args) throws IOException {
         int numPlayers = 5;
-        int numGames = 20;
+        int numGames = 1;
         String agentName = "RobertSalman";
 
         Random random = new Random();
@@ -88,7 +88,8 @@ public class App {
         dataAppend = "Game: " + time + " score: " + statsSummary.getMean();
         dataFile.append(dataAppend);
         dataFile.append(System.lineSeparator());
-        dataFile.append("See file "+ file + "for more info");
+        dataFile.append("See file: "+ file + " for more info.");
+        dataFile.append(System.lineSeparator());
         dataFile.close();
     }
 }

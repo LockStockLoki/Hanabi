@@ -1,0 +1,3 @@
+Max depth limit of 2iterations. Run for 1games.
+Game: 11:12:53.888333700 score: 2.0
+See file .\Data\RobertSalman\2018-12-06 11-12-53.txtfor more info
