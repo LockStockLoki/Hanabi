@@ -24,72 +24,82 @@ import java.util.Date;
 public class App {
     public static void main(String[] args) throws IOException {
         int numPlayers = 5;
-        int numGames = 1;
+        int numGames = 20;
         String agentName = "RobertSalman";
-
-        Random random = new Random();
-        StatsSummary statsSummary = new BasicStats();
-        int currentGame;
-
-        Date date = new Date() ;
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss") ;
+        
         String filePath = "./Data/" + agentName;
-        File file = new File(filePath, dateFormat.format(date) + ".txt") ;
-        LocalTime time = java.time.LocalTime.now();
-        BufferedWriter out = new BufferedWriter(new FileWriter(file));
-
         filePath = "./Data/" + agentName + "/Data.txt";
         FileWriter dataFile = new FileWriter(filePath, true);
+        
+        while(RobertSalmanMCTS.maxDepthLimit < 40)
+        {
+            Random random = new Random();
+            StatsSummary statsSummary = new BasicStats();
+            
+            Date date = new Date() ;
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss") ;
+            File file = new File(filePath, dateFormat.format(date) + ".txt") ;
+            LocalTime time = java.time.LocalTime.now();
+            BufferedWriter out = new BufferedWriter(new FileWriter(file));
 
-        for (int i = 0; i < numGames; i++) {
-            GameRunner runner = new GameRunner("test-game", numPlayers);
-            currentGame = i;
-            System.out.println("Game #" + currentGame);
-            // add your agents to the game
-            for (int j = 0; j < numPlayers; j++) {
-                // the player class keeps track of our state for us...
-                Player player = new AgentPlayer(agentName, AgentUtils.buildAgent(agentName));
-                runner.addPlayer(player);
+            int currentGame = 0;
+
+            for (int i = 0; i < numGames; i++) 
+            {
+                GameRunner runner = new GameRunner("test-game", numPlayers);
+                currentGame = i;
+                System.out.println("Game #" + currentGame);
+                // add your agents to the game
+                for (int j = 0; j < numPlayers; j++) {
+                    // the player class keeps track of our state for us...
+                    Player player = new AgentPlayer(agentName, AgentUtils.buildAgent(agentName));
+                    runner.addPlayer(player);
+                }
+
+                GameStats stats = runner.playGame(random.nextLong());
+                statsSummary.add(stats.score);
             }
 
-            GameStats stats = runner.playGame(random.nextLong());
-            statsSummary.add(stats.score);
-        }
-
-        // print out the stats
-        System.out.println(String.format("Our agent: Avg: %f, min: %f, max: %f", statsSummary.getMean(), statsSummary.getMin(), statsSummary.getMax()));
-        
-        out.write("Agent is: "+agentName+ ".");
-        out.write(System.lineSeparator());
-        if(RobertSalman.iterationsOrTime)
-        {
-            String string = "This agent was run with an iteration based loop of " + RobertSalman.iteration + " iterations.";
-            System.out.print(string);
-            out.write(string);
-        }
-        if(!RobertSalman.iterationsOrTime)
-        {
-            String string = "This agent was run with a time based loop of " + RobertSalman.defaultRuntime + " milliseconds.";
-            System.out.print(string);
-            out.write(string);
+            // print out the stats
+            System.out.println(String.format("Our agent: Avg: %f, min: %f, max: %f", statsSummary.getMean(), statsSummary.getMin(), statsSummary.getMax()));
             
-        }
-        out.newLine();
-        out.write("Number of players: " + numPlayers);
-        out.newLine();
-        out.write("Number of games played: " + numGames);
-        out.newLine();
-        out.write(String.format("Our agent: Avg: %f, min: %f, max: %f", statsSummary.getMean(), statsSummary.getMin(), statsSummary.getMax()));
-        out.close();
+            out.write("Agent is: "+agentName+ ".");
+            out.write(System.lineSeparator());
+            if(RobertSalman.iterationsOrTime)
+            {
+                String string = "This agent was run with an iteration based loop of " + RobertSalman.iteration + " iterations.";
+                System.out.print(string);
+                out.write(string);
+            }
+            if(!RobertSalman.iterationsOrTime)
+            {
+                String string = "This agent was run with a time based loop of " + RobertSalman.defaultRuntime + " milliseconds.";
+                System.out.print(string);
+                out.write(string);
+                
+            }
+            out.newLine();
+            out.write("Number of players: " + numPlayers);
+            out.newLine();
+            out.write("Number of games played: " + numGames);
+            out.newLine();
+            out.write("Maximum depth limit of simulate(): " + RobertSalmanMCTS.maxDepthLimit);
+            out.newLine();
+            out.write(String.format("Our agent: Avg: %f, min: %f, max: %f", statsSummary.getMean(), statsSummary.getMin(), statsSummary.getMax()));
+            out.close();
 
-        String dataAppend = "Max depth limit of " + RobertSalmanMCTS.maxDepthLimit + "iterations. Run for " + numGames + "games.";
-        dataFile.append(dataAppend);
-        dataFile.append(System.lineSeparator());
-        dataAppend = "Game: " + time + " score: " + statsSummary.getMean();
-        dataFile.append(dataAppend);
-        dataFile.append(System.lineSeparator());
-        dataFile.append("See file: "+ file + " for more info.");
-        dataFile.append(System.lineSeparator());
+            String dataAppend = "Max depth limit of " + RobertSalmanMCTS.maxDepthLimit + " iterations. Run for " + numGames + " games.";
+            dataFile.append(System.lineSeparator());
+            dataFile.append(dataAppend);
+            dataFile.append(System.lineSeparator());
+            dataAppend = "Game: " + time + " score: " + statsSummary.getMean();
+            dataFile.append(dataAppend);
+            dataFile.append(System.lineSeparator());
+            dataFile.append("See file: "+ file + " for more info.");
+            dataFile.append(System.lineSeparator());
+            currentGame++;
+            RobertSalmanMCTS.maxDepthLimit++;
+        }
         dataFile.close();
     }
 }

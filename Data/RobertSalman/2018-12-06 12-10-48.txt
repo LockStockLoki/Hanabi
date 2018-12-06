@@ -1,0 +1,6 @@
+Agent is: RobertSalman.
+This agent was run with an iteration based loop of 15000 iterations.
+Number of players: 5
+Number of games played: 20
+Maximum depth limit of simulate(): 9
+Our agent: Avg: 1.550000, min: 0.000000, max: 5.000000
