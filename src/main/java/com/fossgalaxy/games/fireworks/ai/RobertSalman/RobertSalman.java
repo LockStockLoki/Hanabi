@@ -125,7 +125,7 @@ public class RobertSalman implements Agent {
                 //Current node is not fully expanded, so we can expand this one.
                 nextNode = Expand(currentNode, gameState);
                 
-                agentID = nextNode.GetAgentID();
+                /*agentID = nextNode.GetAgentID();
                 action = nextNode.GetAction();
 
                 if(action != null)// we need to apply the action and advance the game state befor we return
@@ -133,7 +133,7 @@ public class RobertSalman implements Agent {
                     List<GameEvent> events = action.apply(agentID, gameState);
                     events.forEach(gameState::addEvent);
                     gameState.tick();
-                } 
+                }*/ 
                 return nextNode;//we need this return to for select to work.
             }
             if(nextNode == null)
@@ -194,8 +194,8 @@ public class RobertSalman implements Agent {
         {
             if (!simBool)
             {
-            System.out.println("I am in the simulate loop");
-            simBool = true;
+                System.out.println("I am in the simulate loop");
+                simBool = true;
             }
             Action action = SelectActionForSimulate(gameState, playerID);
             List<GameEvent> event = action.apply(playerID, gameState); 

@@ -23,7 +23,7 @@ import java.util.Date;
 public class App {
     public static void main(String[] args) throws IOException {
         int numPlayers = 5;
-        int numGames = 2;
+        int numGames = 1;
         String agentName = "RobertSalman";
 
         Random random = new Random();
@@ -32,11 +32,12 @@ public class App {
 
         Date date = new Date() ;
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss") ;
-        File file = new File("./Data/" + dateFormat.format(date) + ".txt") ;
+        String filePath = "./Data/" + agentName;
+        File file = new File(filePath, dateFormat.format(date) + ".txt") ;
         LocalTime time = java.time.LocalTime.now();
         BufferedWriter out = new BufferedWriter(new FileWriter(file));
 
-        String filePath = "./Data/"+agentName+"Data.txt";
+        filePath = "./Data/" + agentName + "/Data.txt";
         FileWriter dataFile = new FileWriter(filePath, true);
 
         for (int i = 0; i < numGames; i++) {
