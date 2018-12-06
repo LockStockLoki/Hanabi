@@ -25,17 +25,20 @@ public class App {
     public static void main(String[] args) throws IOException {
         int numPlayers = 5;
         int numGames = 20;
-        String agentName = "RobertSalman";
+        String[] agentName = {"RobertSalman", "cautious", "flawed", "iggi", "iggi2"};
+        String ourAgent = agentName[0];
         
-        String filePath = "./Data/" + agentName;
-        filePath = "./Data/" + agentName + "/Data.txt";
-        FileWriter dataFile = new FileWriter(filePath, true);
+
         
         while(RobertSalmanMCTS.maxDepthLimit < 40)
         {
             Random random = new Random();
             StatsSummary statsSummary = new BasicStats();
-            
+
+            String filePath = "./Data/" + ourAgent;
+            filePath = "./Data/" + ourAgent;
+            FileWriter dataFile = new FileWriter(filePath + "/Data.txt", true);
+
             Date date = new Date() ;
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss") ;
             File file = new File(filePath, dateFormat.format(date) + ".txt") ;
@@ -52,7 +55,7 @@ public class App {
                 // add your agents to the game
                 for (int j = 0; j < numPlayers; j++) {
                     // the player class keeps track of our state for us...
-                    Player player = new AgentPlayer(agentName, AgentUtils.buildAgent(agentName));
+                    Player player = new AgentPlayer(agentName[j], AgentUtils.buildAgent(agentName[j]));
                     runner.addPlayer(player);
                 }
 
@@ -63,7 +66,7 @@ public class App {
             // print out the stats
             System.out.println(String.format("Our agent: Avg: %f, min: %f, max: %f", statsSummary.getMean(), statsSummary.getMin(), statsSummary.getMax()));
             
-            out.write("Agent is: "+agentName+ ".");
+            out.write("Agent is: "+ourAgent+ ".");
             out.write(System.lineSeparator());
             if(RobertSalman.iterationsOrTime)
             {
@@ -99,7 +102,8 @@ public class App {
             dataFile.append(System.lineSeparator());
             currentGame++;
             RobertSalmanMCTS.maxDepthLimit++;
+            dataFile.close();
         }
-        dataFile.close();
+        
     }
 }

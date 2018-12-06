@@ -26,7 +26,7 @@ public class RobertSalmanMCTS implements Agent {
     
     public final static int iteration = 15000;
     public final static long defaultRuntime = 1000;
-    public static int maxDepthLimit = 0;
+    public static int maxDepthLimit = 15;
     
     Random random;
     int roundLength;
