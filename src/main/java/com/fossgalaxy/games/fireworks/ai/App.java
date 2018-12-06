@@ -28,15 +28,12 @@ public class App {
         String[] agentName = {"RobertSalman", "cautious", "flawed", "iggi", "iggi2"};
         String ourAgent = agentName[0];
         
-
-        
         while(RobertSalmanMCTS.maxDepthLimit < 40)
         {
             Random random = new Random();
             StatsSummary statsSummary = new BasicStats();
 
             String filePath = "./Data/" + ourAgent;
-            filePath = "./Data/" + ourAgent;
             FileWriter dataFile = new FileWriter(filePath + "/Data.txt", true);
 
             Date date = new Date() ;

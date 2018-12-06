@@ -14,7 +14,11 @@ import java.util.stream.Collectors;
 public class RobertSalmanNode {
     private static final int maxScore = 25;
     private static final double Epsilon = 1e-6;
-    private double explorationFactor;
+    
+    private static final double defaultExplorationFactor = Math.sqrt(2);
+    public static double explorationFactor = 0;
+    public boolean useDefaultExploration = false;
+    
     private Action transitionAction;
     private int agentID;
     private RobertSalmanNode parentNode;
@@ -27,8 +31,6 @@ public class RobertSalmanNode {
 
     StatsSummary simulateScores;
     StatsSummary simulateMoves;
-
-    public static final double defaultExplorationFactor = Math.sqrt(2);
 
     public RobertSalmanNode(RobertSalmanNode parentNode, int agentID, Action transitionAction, Collection<Action> allUnexpandedActions)
     {
@@ -133,7 +135,16 @@ public class RobertSalmanNode {
             return 0;
         }
 
-        return ((score/ maxScore) / visits) + (explorationFactor * Math.sqrt(Math.log(legal / visits)));
+        if(useDefaultExploration)
+        {
+            return ((score/ maxScore) / visits) + (defaultExplorationFactor * Math.sqrt(Math.log(legal / visits)));
+        }
+        if(!useDefaultExploration)
+        {
+            return ((score/ maxScore) / visits) + (explorationFactor * Math.sqrt(Math.log(legal / visits)));
+        }
+        
+        else return 0;
     }
 
     public int GetAgentID()

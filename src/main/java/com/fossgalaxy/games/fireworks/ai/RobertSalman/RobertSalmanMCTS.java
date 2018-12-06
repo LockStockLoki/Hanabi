@@ -20,14 +20,16 @@ import java.util.Iterator;
 
 public class RobertSalmanMCTS implements Agent {
 
-    boolean debug = true;
+    boolean debug = false;
     
     public static boolean iterationsOrTime = true; //true for iterations, false for time.  The method the while loop uses in doMove.
     
     public final static int iteration = 15000;
     public final static long defaultRuntime = 1000;
-    public static int maxDepthLimit = 15;
     
+    public static int maxDepthLimit = 0;
+    private final int defaultMaxDepthLimit = 30;
+
     Random random;
     int roundLength;
 
@@ -186,7 +188,7 @@ public class RobertSalmanMCTS implements Agent {
         System.out.println("lives:" +gameState.getLives());
         gameStateTriggered = true;
        }
-        while(!gameState.isGameOver() && moves < maxDepthLimit)
+        while(!gameState.isGameOver() && moves < defaultMaxDepthLimit)
         {
             if (!simBool)
             {
