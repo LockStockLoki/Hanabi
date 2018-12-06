@@ -23,7 +23,7 @@ import java.util.Date;
 public class App {
     public static void main(String[] args) throws IOException {
         int numPlayers = 5;
-        int numGames = 10;
+        int numGames = 20;
         String agentName = "RobertSalman";
 
         Random random = new Random();
@@ -82,6 +82,10 @@ public class App {
         out.close();
 
         String dataAppend = "Game: " + time + " score: " + statsSummary.getMean();
+        dataFile.append(dataAppend);
+        dataFile.append(System.lineSeparator());
+
+        dataAppend = "Game: " + time + " score: " + statsSummary.getMean();
         dataFile.append(dataAppend);
         dataFile.append(System.lineSeparator());
         dataFile.close();

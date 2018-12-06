@@ -24,7 +24,7 @@ public class RobertSalmanMCTS implements Agent {
     
     public static boolean iterationsOrTime = true; //true for iterations, false for time.  The method the while loop uses in doMove.
     
-    public final static int iteration = 50000;
+    public final static int iteration = 15000;
     public final static long defaultRuntime = 1000;
     
     Random random;
