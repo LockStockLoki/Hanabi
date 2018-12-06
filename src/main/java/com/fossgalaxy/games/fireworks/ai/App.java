@@ -35,7 +35,7 @@ public class App {
 
         int runCount = 0;
         int maxRunCount = 200;
-        while(runCount < maxRunCount)
+        while(RobertSalmanMCTS.expFactor < 1.0)
         {
             Random random = new Random();
             StatsSummary statsSummary = new BasicStats();
