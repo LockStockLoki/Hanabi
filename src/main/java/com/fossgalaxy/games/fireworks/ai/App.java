@@ -4,6 +4,7 @@ import com.fossgalaxy.games.fireworks.GameRunner;
 import com.fossgalaxy.games.fireworks.GameStats;
 import com.fossgalaxy.games.fireworks.ai.AgentPlayer;
 import com.fossgalaxy.games.fireworks.ai.RobertSalman.RobertSalman;
+import com.fossgalaxy.games.fireworks.ai.RobertSalman.RobertSalmanMCTS;
 import com.fossgalaxy.games.fireworks.players.Player;
 import com.fossgalaxy.games.fireworks.utils.AgentUtils;
 import com.fossgalaxy.stats.BasicStats;
@@ -81,10 +82,9 @@ public class App {
         out.write(String.format("Our agent: Avg: %f, min: %f, max: %f", statsSummary.getMean(), statsSummary.getMin(), statsSummary.getMax()));
         out.close();
 
-        String dataAppend = "Game: " + time + " score: " + statsSummary.getMean();
+        String dataAppend = "Max depth limit of: " + RobertSalmanMCTS.maxDepthLimit + "iterations.";
         dataFile.append(dataAppend);
         dataFile.append(System.lineSeparator());
-
         dataAppend = "Game: " + time + " score: " + statsSummary.getMean();
         dataFile.append(dataAppend);
         dataFile.append(System.lineSeparator());

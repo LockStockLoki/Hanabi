@@ -26,6 +26,7 @@ public class RobertSalmanMCTS implements Agent {
     
     public final static int iteration = 15000;
     public final static long defaultRuntime = 1000;
+    public static final int maxDepthLimit = 2;
     
     Random random;
     int roundLength;
@@ -174,8 +175,7 @@ public class RobertSalmanMCTS implements Agent {
     boolean gameStateTriggered = false;
     boolean simBool = false;
 
-    
-    private static final int maxDepthLimit = 1;
+
     protected int Simulate(GameState gameState, final int agentID, RobertSalmanNode currentNode)
     {
         int playerID = agentID;
