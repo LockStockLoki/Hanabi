@@ -82,7 +82,7 @@ public class App {
         out.write(String.format("Our agent: Avg: %f, min: %f, max: %f", statsSummary.getMean(), statsSummary.getMin(), statsSummary.getMax()));
         out.close();
 
-        String dataAppend = "Max depth limit of: " + RobertSalmanMCTS.maxDepthLimit + "iterations.";
+        String dataAppend = "Max depth limit of " + RobertSalmanMCTS.maxDepthLimit + "iterations. Run for " + numGames + "games.";
         dataFile.append(dataAppend);
         dataFile.append(System.lineSeparator());
         dataAppend = "Game: " + time + " score: " + statsSummary.getMean();
