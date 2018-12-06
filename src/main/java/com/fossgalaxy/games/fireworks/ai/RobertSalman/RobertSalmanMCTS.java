@@ -28,8 +28,8 @@ public class RobertSalmanMCTS implements Agent {
     public final static long defaultRuntime = 1000;
     
     public static int maxDepthLimit = 0;
-    private final int defaultMaxDepthLimit = 30;
-
+    public static final int defaultMaxDepthLimit = 30;
+    public static float expFactor = 0;
     Random random;
     int roundLength;
 
@@ -56,7 +56,7 @@ public class RobertSalmanMCTS implements Agent {
         
         long time = System.currentTimeMillis() + defaultRuntime;//we have a second to do our move, but we don't want to get disqualified.
 
-        RobertSalmanNode rootNode = new RobertSalmanNode(null, (agentID + gameState.getPlayerCount() - 1) % gameState.getPlayerCount(), null, Utils.generateAllActions(agentID, gameState.getPlayerCount()));
+        RobertSalmanNode rootNode = new RobertSalmanNode(null, (agentID + gameState.getPlayerCount() - 1) % gameState.getPlayerCount(), null, Utils.generateAllActions(agentID, gameState.getPlayerCount()), expFactor);
 
         Map<Integer, List<Card>> possibleCards = DeckUtils.bindCard(agentID, gameState.getHand(agentID), gameState.getDeck().toList());
         List<Integer> bindOrder = DeckUtils.bindOrder(possibleCards);

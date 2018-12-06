@@ -20,7 +20,6 @@ public class RobertSalman extends RobertSalmanMCTS
 
     public RobertSalman()
     {
-        System.out.println("I am a rule based agent!");
         simulationPolicy = ruleAgent();
     }   
 

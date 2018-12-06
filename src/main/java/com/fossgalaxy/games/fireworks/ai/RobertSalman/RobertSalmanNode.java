@@ -15,8 +15,8 @@ public class RobertSalmanNode {
     private static final int maxScore = 25;
     private static final double Epsilon = 1e-6;
     
-    private static final double defaultExplorationFactor = Math.sqrt(2);
-    public static double explorationFactor = 0;
+    public static final double defaultExplorationFactor = Math.sqrt(2);
+    private final double explorationFactor;
     public boolean useDefaultExploration = false;
     
     private Action transitionAction;

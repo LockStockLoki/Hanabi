@@ -5,6 +5,7 @@ import com.fossgalaxy.games.fireworks.GameStats;
 import com.fossgalaxy.games.fireworks.ai.AgentPlayer;
 import com.fossgalaxy.games.fireworks.ai.RobertSalman.RobertSalman;
 import com.fossgalaxy.games.fireworks.ai.RobertSalman.RobertSalmanMCTS;
+import com.fossgalaxy.games.fireworks.ai.RobertSalman.RobertSalmanNode;
 import com.fossgalaxy.games.fireworks.players.Player;
 import com.fossgalaxy.games.fireworks.utils.AgentUtils;
 import com.fossgalaxy.stats.BasicStats;
@@ -24,11 +25,17 @@ import java.util.Date;
 public class App {
     public static void main(String[] args) throws IOException {
         int numPlayers = 5;
-        int numGames = 20;
+        int numGames = 5;//number of games per run
         String[] agentName = {"RobertSalman", "cautious", "flawed", "iggi", "iggi2"};
         String ourAgent = agentName[0];
-        
-        while(RobertSalmanMCTS.maxDepthLimit < 40)
+
+        //make sure simulate is changed to compare moves to maxDepthLimit not defaultMaxDepthLimit
+        boolean testDepthLimit = false;
+        boolean testExplorationFactor = true;
+
+        int runCount = 0;
+        int maxRunCount = 200;
+        while(runCount < maxRunCount)
         {
             Random random = new Random();
             StatsSummary statsSummary = new BasicStats();
@@ -79,12 +86,16 @@ public class App {
                 
             }
             out.newLine();
+            out.write("The Exploration Factor used was: " + RobertSalmanMCTS.expFactor);
+            out.newLine();
             out.write("Number of players: " + numPlayers);
             out.newLine();
             out.write("Number of games played: " + numGames);
             out.newLine();
-            out.write("Maximum depth limit of simulate(): " + RobertSalmanMCTS.maxDepthLimit);
+            if(testDepthLimit) out.write("Maximum depth limit of simulate(): " + RobertSalmanMCTS.maxDepthLimit);
+            else out.write("Maximum depth of simulate(): " + RobertSalmanMCTS.defaultMaxDepthLimit);
             out.newLine();
+            
             out.write(String.format("Our agent: Avg: %f, min: %f, max: %f", statsSummary.getMean(), statsSummary.getMin(), statsSummary.getMax()));
             out.close();
 
@@ -97,9 +108,13 @@ public class App {
             dataFile.append(System.lineSeparator());
             dataFile.append("See file: "+ file + " for more info.");
             dataFile.append(System.lineSeparator());
-            currentGame++;
-            RobertSalmanMCTS.maxDepthLimit++;
             dataFile.close();
+            
+            currentGame++;
+            runCount++;
+            
+            if(testExplorationFactor)RobertSalmanMCTS.expFactor += 0.001;
+            if(testDepthLimit)RobertSalmanMCTS.maxDepthLimit++;
         }
         
     }
