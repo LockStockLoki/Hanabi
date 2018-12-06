@@ -88,6 +88,7 @@ public class App {
         dataAppend = "Game: " + time + " score: " + statsSummary.getMean();
         dataFile.append(dataAppend);
         dataFile.append(System.lineSeparator());
+        dataFile.append("See file "+ file + "for more info");
         dataFile.close();
     }
 }
