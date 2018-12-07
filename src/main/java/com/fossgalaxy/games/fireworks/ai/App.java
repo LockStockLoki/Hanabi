@@ -113,7 +113,7 @@ public class App {
             currentGame++;
             runCount++;
             
-            if(testExplorationFactor)RobertSalmanMCTS.expFactor += 0.001;
+            if(testExplorationFactor)RobertSalmanMCTS.expFactor += 0.1;
             if(testDepthLimit)RobertSalmanMCTS.maxDepthLimit++;
         }
         

@@ -52,6 +52,8 @@ public class RobertSalmanNode {
 
         simulateScores = new BasicStats();
         simulateMoves = new BasicStats();
+    
+        System.out.println("Exploration factor for this node is: " + exploractionFactor);
     }
 
     public boolean FullyExpanded(GameState gameState)

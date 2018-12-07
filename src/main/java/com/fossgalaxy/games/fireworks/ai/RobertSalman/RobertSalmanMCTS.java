@@ -29,7 +29,7 @@ public class RobertSalmanMCTS implements Agent {
     
     public static int maxDepthLimit = 0;
     public static final int defaultMaxDepthLimit = 30;
-    public static double expFactor = 0.018;
+    public static double expFactor = 0.3;
     Random random;
     int roundLength;
 
