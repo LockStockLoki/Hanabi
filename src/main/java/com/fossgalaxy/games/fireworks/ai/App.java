@@ -31,12 +31,16 @@ public class App {
 
         //make sure simulate is changed to compare moves to maxDepthLimit not defaultMaxDepthLimit
         boolean testDepthLimit = false;
-        boolean testExplorationFactor = true;
+        boolean testExplorationFactor = false;
 
         int runCount = 0;
-        int maxRunCount = 200;
-        while(RobertSalmanMCTS.expFactor < 1.0)
+        int maxRunCount = 400;
+        while(runCount  < maxRunCount)
         {
+            int currentGame = 0;
+            
+            runCount++;
+            
             Random random = new Random();
             StatsSummary statsSummary = new BasicStats();
 
@@ -49,7 +53,7 @@ public class App {
             LocalTime time = java.time.LocalTime.now();
             BufferedWriter out = new BufferedWriter(new FileWriter(file));
 
-            int currentGame = 0;
+            
 
             for (int i = 0; i < numGames; i++) 
             {
@@ -65,6 +69,7 @@ public class App {
 
                 GameStats stats = runner.playGame(random.nextLong());
                 statsSummary.add(stats.score);
+                currentGame++;
             }
 
             // print out the stats
@@ -90,7 +95,7 @@ public class App {
             out.newLine();
             out.write("Number of players: " + numPlayers);
             out.newLine();
-            out.write("Number of games played: " + numGames);
+            out.write("Number of games played: " + currentGame);
             out.newLine();
             if(testDepthLimit) out.write("Maximum depth limit of simulate(): " + RobertSalmanMCTS.maxDepthLimit);
             else out.write("Maximum depth of simulate(): " + RobertSalmanMCTS.defaultMaxDepthLimit);
@@ -109,9 +114,6 @@ public class App {
             dataFile.append("See file: "+ file + " for more info.");
             dataFile.append(System.lineSeparator());
             dataFile.close();
-            
-            currentGame++;
-            runCount++;
             
             if(testExplorationFactor)RobertSalmanMCTS.expFactor += 0.1;
             if(testDepthLimit)RobertSalmanMCTS.maxDepthLimit++;

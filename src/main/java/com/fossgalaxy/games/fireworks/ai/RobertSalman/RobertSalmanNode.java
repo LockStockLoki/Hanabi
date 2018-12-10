@@ -17,7 +17,6 @@ public class RobertSalmanNode {
     
     public static final double defaultExplorationFactor = Math.sqrt(2);
     private final double explorationFactor;
-    public boolean useDefaultExploration = false;
     
     private Action transitionAction;
     private int agentID;
@@ -31,11 +30,6 @@ public class RobertSalmanNode {
 
     StatsSummary simulateScores;
     StatsSummary simulateMoves;
-
-    public RobertSalmanNode(RobertSalmanNode parentNode, int agentID, Action transitionAction, Collection<Action> allUnexpandedActions)
-    {
-        this(parentNode, agentID, transitionAction, allUnexpandedActions, defaultExplorationFactor);
-    }
 
     public RobertSalmanNode(RobertSalmanNode parentNode, int agentID, Action transitionAction, Collection<Action> allUnexpandedActions, double exploractionFactor)
     {
@@ -52,8 +46,6 @@ public class RobertSalmanNode {
 
         simulateScores = new BasicStats();
         simulateMoves = new BasicStats();
-    
-        System.out.println("Exploration factor for this node is: " + exploractionFactor);
     }
 
     public boolean FullyExpanded(GameState gameState)
@@ -136,17 +128,8 @@ public class RobertSalmanNode {
         {
             return 0;
         }
-
-        if(useDefaultExploration)
-        {
-            return ((score/ maxScore) / visits) + (defaultExplorationFactor * Math.sqrt(Math.log(legal / visits)));
-        }
-        if(!useDefaultExploration)
-        {
-            return ((score/ maxScore) / visits) + (explorationFactor * Math.sqrt(Math.log(legal / visits)));
-        }
-        
-        else return 0;
+            
+        return ((score/ maxScore) / visits) + (explorationFactor * Math.sqrt(Math.log(legal / visits)));    
     }
 
     public int GetAgentID()

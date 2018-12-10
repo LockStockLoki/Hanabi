@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Iterator;
+import java.io.*;
 
 public class RobertSalmanMCTS implements Agent {
 
@@ -29,10 +30,10 @@ public class RobertSalmanMCTS implements Agent {
     
     public static int maxDepthLimit = 0;
     public static final int defaultMaxDepthLimit = 30;
-    public static double expFactor = 0.3;
+    public static double expFactor = 0.0;
     Random random;
     int roundLength;
-
+    
     public RobertSalmanMCTS()
     {
         random = new Random();
@@ -168,7 +169,7 @@ public class RobertSalmanMCTS implements Agent {
             return parentNode.GetChild(action);
         }
 
-        RobertSalmanNode child = new RobertSalmanNode(parentNode, nextAgentID, action, Utils.generateAllActions(nextAgentID, gameState.getPlayerCount()));
+        RobertSalmanNode child = new RobertSalmanNode(parentNode, nextAgentID, action, Utils.generateAllActions(nextAgentID, gameState.getPlayerCount()), expFactor);
         parentNode.AddChild(child);
         
         return child;

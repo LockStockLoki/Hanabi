@@ -1,492 +1,552 @@
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 20:03:05.094595200 score: 5.29
-See file: .\Data\RobertSalman\2018-12-06 20-03-05.txt for more info.
+Game: 17:38:58.485623 score: 5.82
+See file: .\Data\RobertSalman\2018-12-07 17-38-58.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 20:10:22.904883600 score: 5.14
-See file: .\Data\RobertSalman\2018-12-06 20-10-22.txt for more info.
+Game: 17:46:22.649558700 score: 5.005
+See file: .\Data\RobertSalman\2018-12-07 17-46-22.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 20:17:19.097611100 score: 5.625
-See file: .\Data\RobertSalman\2018-12-06 20-17-19.txt for more info.
+Game: 17:53:38.166220900 score: 5.26
+See file: .\Data\RobertSalman\2018-12-07 17-53-38.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 20:24:47.706096900 score: 5.0
-See file: .\Data\RobertSalman\2018-12-06 20-24-47.txt for more info.
+Game: 18:00:59.501042400 score: 5.215
+See file: .\Data\RobertSalman\2018-12-07 18-00-59.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 20:31:56.002365800 score: 5.225
-See file: .\Data\RobertSalman\2018-12-06 20-31-56.txt for more info.
+Game: 18:08:17.170149600 score: 5.325
+See file: .\Data\RobertSalman\2018-12-07 18-08-17.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 20:39:18.875874600 score: 5.34
-See file: .\Data\RobertSalman\2018-12-06 20-39-18.txt for more info.
+Game: 18:15:34.877999600 score: 5.465
+See file: .\Data\RobertSalman\2018-12-07 18-15-34.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 20:46:47.857282200 score: 5.34
-See file: .\Data\RobertSalman\2018-12-06 20-46-47.txt for more info.
+Game: 18:22:54.698462900 score: 4.945
+See file: .\Data\RobertSalman\2018-12-07 18-22-54.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 20:54:08.358061400 score: 5.525
-See file: .\Data\RobertSalman\2018-12-06 20-54-08.txt for more info.
+Game: 18:29:57.961392300 score: 5.31
+See file: .\Data\RobertSalman\2018-12-07 18-29-57.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 21:01:30.251347600 score: 5.245
-See file: .\Data\RobertSalman\2018-12-06 21-01-30.txt for more info.
+Game: 18:37:01.201615700 score: 4.97
+See file: .\Data\RobertSalman\2018-12-07 18-37-01.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 21:08:47.861612500 score: 5.405
-See file: .\Data\RobertSalman\2018-12-06 21-08-47.txt for more info.
+Game: 18:44:09.921908600 score: 5.335
+See file: .\Data\RobertSalman\2018-12-07 18-44-09.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 21:16:04.602179400 score: 5.555
-See file: .\Data\RobertSalman\2018-12-06 21-16-04.txt for more info.
+Game: 18:51:05.055573200 score: 5.225
+See file: .\Data\RobertSalman\2018-12-07 18-51-05.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 21:23:18.436236900 score: 5.035
-See file: .\Data\RobertSalman\2018-12-06 21-23-18.txt for more info.
+Game: 18:58:27.505515 score: 5.055
+See file: .\Data\RobertSalman\2018-12-07 18-58-27.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 21:30:16.616954600 score: 5.36
-See file: .\Data\RobertSalman\2018-12-06 21-30-16.txt for more info.
+Game: 19:05:43.453906900 score: 5.62
+See file: .\Data\RobertSalman\2018-12-07 19-05-43.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 21:37:36.728691700 score: 4.97
-See file: .\Data\RobertSalman\2018-12-06 21-37-36.txt for more info.
+Game: 19:13:14.105250600 score: 5.425
+See file: .\Data\RobertSalman\2018-12-07 19-13-14.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 21:44:39.889805500 score: 5.035
-See file: .\Data\RobertSalman\2018-12-06 21-44-39.txt for more info.
+Game: 19:20:33.596309900 score: 4.995
+See file: .\Data\RobertSalman\2018-12-07 19-20-33.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 21:52:02.928655800 score: 5.53
-See file: .\Data\RobertSalman\2018-12-06 21-52-02.txt for more info.
+Game: 19:27:48.095271100 score: 5.465
+See file: .\Data\RobertSalman\2018-12-07 19-27-48.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 21:59:43.635153900 score: 5.115
-See file: .\Data\RobertSalman\2018-12-06 21-59-43.txt for more info.
+Game: 19:35:05.119211900 score: 5.255
+See file: .\Data\RobertSalman\2018-12-07 19-35-05.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 22:07:00.145716100 score: 5.65
-See file: .\Data\RobertSalman\2018-12-06 22-07-00.txt for more info.
+Game: 19:42:29.277857 score: 5.35
+See file: .\Data\RobertSalman\2018-12-07 19-42-29.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 22:40:09.175203800 score: 5.23
-See file: .\Data\RobertSalman\2018-12-06 22-40-09.txt for more info.
+Game: 19:49:50.440146900 score: 5.195
+See file: .\Data\RobertSalman\2018-12-07 19-49-50.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 22:47:55.223826700 score: 5.205
-See file: .\Data\RobertSalman\2018-12-06 22-47-55.txt for more info.
+Game: 19:57:11.550751600 score: 5.62
+See file: .\Data\RobertSalman\2018-12-07 19-57-11.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 22:55:32.849677500 score: 5.27
-See file: .\Data\RobertSalman\2018-12-06 22-55-32.txt for more info.
+Game: 21:09:16.076395400 score: 5.515
+See file: .\Data\RobertSalman\2018-12-07 21-09-16.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 23:03:13.407133700 score: 5.28
-See file: .\Data\RobertSalman\2018-12-06 23-03-13.txt for more info.
+Game: 21:16:41.689982500 score: 5.155
+See file: .\Data\RobertSalman\2018-12-07 21-16-41.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 23:24:25.503092700 score: 4.955
-See file: .\Data\RobertSalman\2018-12-06 23-24-25.txt for more info.
+Game: 21:23:35.689320600 score: 5.245
+See file: .\Data\RobertSalman\2018-12-07 21-23-35.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 23:31:52.553599500 score: 5.265
-See file: .\Data\RobertSalman\2018-12-06 23-31-52.txt for more info.
+Game: 21:31:00.208767200 score: 5.09
+See file: .\Data\RobertSalman\2018-12-07 21-31-00.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 23:39:14.498768600 score: 5.08
-See file: .\Data\RobertSalman\2018-12-06 23-39-14.txt for more info.
+Game: 21:38:21.178477300 score: 5.475
+See file: .\Data\RobertSalman\2018-12-07 21-38-21.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 23:46:27.197386300 score: 5.295
-See file: .\Data\RobertSalman\2018-12-06 23-46-27.txt for more info.
+Game: 21:45:49.991276600 score: 4.925
+See file: .\Data\RobertSalman\2018-12-07 21-45-49.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 23:53:38.400821700 score: 5.24
-See file: .\Data\RobertSalman\2018-12-06 23-53-38.txt for more info.
+Game: 21:52:46.675661900 score: 5.5
+See file: .\Data\RobertSalman\2018-12-07 21-52-46.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 00:01:00.695700400 score: 5.505
-See file: .\Data\RobertSalman\2018-12-07 00-01-00.txt for more info.
+Game: 21:59:57.643855 score: 5.415
+See file: .\Data\RobertSalman\2018-12-07 21-59-57.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 00:08:37.699065400 score: 5.32
-See file: .\Data\RobertSalman\2018-12-07 00-08-37.txt for more info.
+Game: 22:07:15.648073600 score: 5.425
+See file: .\Data\RobertSalman\2018-12-07 22-07-15.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 00:15:55.475131300 score: 5.13
-See file: .\Data\RobertSalman\2018-12-07 00-15-55.txt for more info.
+Game: 22:14:31.664712500 score: 5.125
+See file: .\Data\RobertSalman\2018-12-07 22-14-31.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 00:23:02.930017300 score: 5.355
-See file: .\Data\RobertSalman\2018-12-07 00-23-02.txt for more info.
+Game: 22:21:30.118329 score: 5.32
+See file: .\Data\RobertSalman\2018-12-07 22-21-30.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 00:30:17.252804300 score: 5.275
-See file: .\Data\RobertSalman\2018-12-07 00-30-17.txt for more info.
+Game: 22:28:36.635076500 score: 5.26
+See file: .\Data\RobertSalman\2018-12-07 22-28-36.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 00:37:19.563944400 score: 4.96
-See file: .\Data\RobertSalman\2018-12-07 00-37-19.txt for more info.
+Game: 22:35:51.280636600 score: 5.545
+See file: .\Data\RobertSalman\2018-12-07 22-35-51.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 00:44:29.866676100 score: 5.75
-See file: .\Data\RobertSalman\2018-12-07 00-44-29.txt for more info.
+Game: 22:43:17.660156 score: 5.415
+See file: .\Data\RobertSalman\2018-12-07 22-43-17.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 00:51:58.234468200 score: 5.215
-See file: .\Data\RobertSalman\2018-12-07 00-51-58.txt for more info.
+Game: 22:50:31.319724100 score: 5.15
+See file: .\Data\RobertSalman\2018-12-07 22-50-31.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 00:59:19.629276400 score: 5.18
-See file: .\Data\RobertSalman\2018-12-07 00-59-19.txt for more info.
+Game: 22:57:49.419000200 score: 5.455
+See file: .\Data\RobertSalman\2018-12-07 22-57-49.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 01:06:29.751516900 score: 5.03
-See file: .\Data\RobertSalman\2018-12-07 01-06-29.txt for more info.
+Game: 23:05:03.709400900 score: 5.12
+See file: .\Data\RobertSalman\2018-12-07 23-05-03.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 01:13:20.053755600 score: 4.89
-See file: .\Data\RobertSalman\2018-12-07 01-13-20.txt for more info.
+Game: 23:12:08.157350200 score: 5.205
+See file: .\Data\RobertSalman\2018-12-07 23-12-08.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 01:20:32.397047100 score: 5.17
-See file: .\Data\RobertSalman\2018-12-07 01-20-32.txt for more info.
+Game: 23:19:15.588369400 score: 5.375
+See file: .\Data\RobertSalman\2018-12-07 23-19-15.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 01:27:36.278935 score: 5.545
-See file: .\Data\RobertSalman\2018-12-07 01-27-36.txt for more info.
+Game: 23:26:42.926951600 score: 5.43
+See file: .\Data\RobertSalman\2018-12-07 23-26-42.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 01:35:03.679763 score: 5.185
-See file: .\Data\RobertSalman\2018-12-07 01-35-03.txt for more info.
+Game: 14:38:16.618444300 score: 5.18
+See file: .\Data\RobertSalman\2018-12-08 14-38-16.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 01:42:02.006695200 score: 5.375
-See file: .\Data\RobertSalman\2018-12-07 01-42-02.txt for more info.
+Game: 14:45:38.741086700 score: 5.885
+See file: .\Data\RobertSalman\2018-12-08 14-45-38.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 01:49:26.866110100 score: 5.49
-See file: .\Data\RobertSalman\2018-12-07 01-49-26.txt for more info.
+Game: 14:53:06.150985300 score: 5.315
+See file: .\Data\RobertSalman\2018-12-08 14-53-06.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 01:56:55.948885300 score: 5.19
-See file: .\Data\RobertSalman\2018-12-07 01-56-55.txt for more info.
+Game: 15:00:30.672199200 score: 5.12
+See file: .\Data\RobertSalman\2018-12-08 15-00-30.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 02:04:22.140916200 score: 5.41
-See file: .\Data\RobertSalman\2018-12-07 02-04-22.txt for more info.
+Game: 15:07:52.008844700 score: 5.12
+See file: .\Data\RobertSalman\2018-12-08 15-07-52.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 02:11:32.528005800 score: 5.36
-See file: .\Data\RobertSalman\2018-12-07 02-11-32.txt for more info.
+Game: 15:15:09.563116700 score: 5.555
+See file: .\Data\RobertSalman\2018-12-08 15-15-09.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 02:19:01.171264400 score: 4.895
-See file: .\Data\RobertSalman\2018-12-07 02-19-01.txt for more info.
+Game: 15:22:35.998605900 score: 4.915
+See file: .\Data\RobertSalman\2018-12-08 15-22-35.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 02:25:59.879420100 score: 5.145
-See file: .\Data\RobertSalman\2018-12-07 02-25-59.txt for more info.
+Game: 15:29:38.786920100 score: 5.67
+See file: .\Data\RobertSalman\2018-12-08 15-29-38.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 02:33:27.421261 score: 5.18
-See file: .\Data\RobertSalman\2018-12-07 02-33-27.txt for more info.
+Game: 15:37:21.072034100 score: 5.275
+See file: .\Data\RobertSalman\2018-12-08 15-37-21.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 02:40:52.687040500 score: 5.405
-See file: .\Data\RobertSalman\2018-12-07 02-40-52.txt for more info.
+Game: 15:44:39.103022 score: 5.26
+See file: .\Data\RobertSalman\2018-12-08 15-44-39.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 02:48:19.395515900 score: 5.165
-See file: .\Data\RobertSalman\2018-12-07 02-48-19.txt for more info.
+Game: 15:52:17.551300900 score: 5.255
+See file: .\Data\RobertSalman\2018-12-08 15-52-17.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 02:55:44.837993 score: 5.29
-See file: .\Data\RobertSalman\2018-12-07 02-55-44.txt for more info.
+Game: 15:59:23.257936900 score: 5.13
+See file: .\Data\RobertSalman\2018-12-08 15-59-23.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 03:02:43.068597100 score: 5.075
-See file: .\Data\RobertSalman\2018-12-07 03-02-43.txt for more info.
+Game: 16:06:38.259356900 score: 5.185
+See file: .\Data\RobertSalman\2018-12-08 16-06-38.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 03:09:46.362522900 score: 5.05
-See file: .\Data\RobertSalman\2018-12-07 03-09-46.txt for more info.
+Game: 16:14:03.292356400 score: 5.19
+See file: .\Data\RobertSalman\2018-12-08 16-14-03.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 03:16:33.047214 score: 5.14
-See file: .\Data\RobertSalman\2018-12-07 03-16-33.txt for more info.
+Game: 16:21:21.470790100 score: 5.555
+See file: .\Data\RobertSalman\2018-12-08 16-21-21.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 03:23:42.935258500 score: 5.435
-See file: .\Data\RobertSalman\2018-12-07 03-23-42.txt for more info.
+Game: 16:28:54.278995800 score: 4.92
+See file: .\Data\RobertSalman\2018-12-08 16-28-54.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 03:31:03.307815500 score: 5.02
-See file: .\Data\RobertSalman\2018-12-07 03-31-03.txt for more info.
+Game: 16:36:01.668453600 score: 5.195
+See file: .\Data\RobertSalman\2018-12-08 16-36-01.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 03:38:10.142940300 score: 5.08
-See file: .\Data\RobertSalman\2018-12-07 03-38-10.txt for more info.
+Game: 16:43:25.033070600 score: 5.58
+See file: .\Data\RobertSalman\2018-12-08 16-43-25.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 03:45:20.504577500 score: 5.315
-See file: .\Data\RobertSalman\2018-12-07 03-45-20.txt for more info.
+Game: 16:50:49.956512100 score: 5.09
+See file: .\Data\RobertSalman\2018-12-08 16-50-49.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 03:52:38.250434900 score: 5.055
-See file: .\Data\RobertSalman\2018-12-07 03-52-38.txt for more info.
+Game: 16:58:08.589962600 score: 4.745
+See file: .\Data\RobertSalman\2018-12-08 16-58-08.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 03:59:43.174020100 score: 5.28
-See file: .\Data\RobertSalman\2018-12-07 03-59-43.txt for more info.
+Game: 17:05:10.303312600 score: 4.755
+See file: .\Data\RobertSalman\2018-12-08 17-05-10.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 04:06:54.891663100 score: 5.215
-See file: .\Data\RobertSalman\2018-12-07 04-06-54.txt for more info.
+Game: 17:12:14.628999700 score: 4.79
+See file: .\Data\RobertSalman\2018-12-08 17-12-14.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 04:14:18.644388900 score: 5.375
-See file: .\Data\RobertSalman\2018-12-07 04-14-18.txt for more info.
+Game: 17:19:15.862232500 score: 5.005
+See file: .\Data\RobertSalman\2018-12-08 17-19-15.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 04:21:41.390110100 score: 5.025
-See file: .\Data\RobertSalman\2018-12-07 04-21-41.txt for more info.
+Game: 17:26:09.908126100 score: 4.98
+See file: .\Data\RobertSalman\2018-12-08 17-26-09.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 04:28:43.520561300 score: 5.35
-See file: .\Data\RobertSalman\2018-12-07 04-28-43.txt for more info.
+Game: 17:33:13.173367100 score: 4.825
+See file: .\Data\RobertSalman\2018-12-08 17-33-13.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 04:36:09.661814 score: 4.885
-See file: .\Data\RobertSalman\2018-12-07 04-36-09.txt for more info.
+Game: 17:40:03.792504300 score: 5.39
+See file: .\Data\RobertSalman\2018-12-08 17-40-03.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 04:43:22.805819 score: 5.23
-See file: .\Data\RobertSalman\2018-12-07 04-43-22.txt for more info.
+Game: 17:47:13.549529400 score: 4.94
+See file: .\Data\RobertSalman\2018-12-08 17-47-13.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 04:50:44.109141200 score: 5.35
-See file: .\Data\RobertSalman\2018-12-07 04-50-44.txt for more info.
+Game: 17:54:31.326112600 score: 5.0
+See file: .\Data\RobertSalman\2018-12-08 17-54-31.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 04:58:15.532831400 score: 5.36
-See file: .\Data\RobertSalman\2018-12-07 04-58-15.txt for more info.
+Game: 18:01:44.835433500 score: 5.02
+See file: .\Data\RobertSalman\2018-12-08 18-01-44.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 05:05:28.873120800 score: 5.565
-See file: .\Data\RobertSalman\2018-12-07 05-05-28.txt for more info.
+Game: 18:08:54.934472800 score: 5.42
+See file: .\Data\RobertSalman\2018-12-08 18-08-54.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 05:12:50.616738700 score: 5.135
-See file: .\Data\RobertSalman\2018-12-07 05-12-50.txt for more info.
+Game: 18:16:20.523779800 score: 5.465
+See file: .\Data\RobertSalman\2018-12-08 18-16-20.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 05:20:14.778413900 score: 5.51
-See file: .\Data\RobertSalman\2018-12-07 05-20-14.txt for more info.
+Game: 18:23:45.959956700 score: 5.165
+See file: .\Data\RobertSalman\2018-12-08 18-23-45.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 05:27:44.466531400 score: 5.46
-See file: .\Data\RobertSalman\2018-12-07 05-27-44.txt for more info.
+Game: 18:31:15.551915600 score: 4.81
+See file: .\Data\RobertSalman\2018-12-08 18-31-15.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 05:35:12.750556600 score: 4.955
-See file: .\Data\RobertSalman\2018-12-07 05-35-12.txt for more info.
+Game: 18:38:18.894249500 score: 5.165
+See file: .\Data\RobertSalman\2018-12-08 18-38-18.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 05:42:09.034553700 score: 5.165
-See file: .\Data\RobertSalman\2018-12-07 05-42-09.txt for more info.
+Game: 18:45:19.905518100 score: 4.82
+See file: .\Data\RobertSalman\2018-12-08 18-45-19.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 05:49:23.964684800 score: 4.885
-See file: .\Data\RobertSalman\2018-12-07 05-49-23.txt for more info.
+Game: 18:52:21.378187800 score: 5.325
+See file: .\Data\RobertSalman\2018-12-08 18-52-21.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 05:56:34.275258600 score: 5.29
-See file: .\Data\RobertSalman\2018-12-07 05-56-34.txt for more info.
+Game: 18:59:47.437621300 score: 5.575
+See file: .\Data\RobertSalman\2018-12-08 18-59-47.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 06:03:50.185386200 score: 5.19
-See file: .\Data\RobertSalman\2018-12-07 06-03-50.txt for more info.
+Game: 19:07:00.987031 score: 5.325
+See file: .\Data\RobertSalman\2018-12-08 19-07-00.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 06:11:02.524770500 score: 5.125
-See file: .\Data\RobertSalman\2018-12-07 06-11-02.txt for more info.
+Game: 19:14:35.799510500 score: 5.255
+See file: .\Data\RobertSalman\2018-12-08 19-14-35.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 06:18:13.159784200 score: 5.62
-See file: .\Data\RobertSalman\2018-12-07 06-18-13.txt for more info.
+Game: 19:21:49.542855500 score: 5.22
+See file: .\Data\RobertSalman\2018-12-08 19-21-49.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 06:25:47.369209400 score: 5.475
-See file: .\Data\RobertSalman\2018-12-07 06-25-47.txt for more info.
+Game: 19:29:01.947746100 score: 5.6
+See file: .\Data\RobertSalman\2018-12-08 19-29-01.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 06:33:02.351984 score: 5.325
-See file: .\Data\RobertSalman\2018-12-07 06-33-02.txt for more info.
+Game: 19:36:21.684140100 score: 5.105
+See file: .\Data\RobertSalman\2018-12-08 19-36-21.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 06:40:28.899325500 score: 4.905
-See file: .\Data\RobertSalman\2018-12-07 06-40-28.txt for more info.
+Game: 19:43:26.930779800 score: 5.32
+See file: .\Data\RobertSalman\2018-12-08 19-43-26.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 06:47:50.335459500 score: 5.595
-See file: .\Data\RobertSalman\2018-12-07 06-47-50.txt for more info.
+Game: 19:50:45.995093300 score: 5.19
+See file: .\Data\RobertSalman\2018-12-08 19-50-45.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 06:55:24.938457300 score: 5.24
-See file: .\Data\RobertSalman\2018-12-07 06-55-24.txt for more info.
+Game: 19:58:15.995927800 score: 5.325
+See file: .\Data\RobertSalman\2018-12-08 19-58-15.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 07:02:46.723620900 score: 5.14
-See file: .\Data\RobertSalman\2018-12-07 07-02-46.txt for more info.
+Game: 20:05:34.697866600 score: 5.34
+See file: .\Data\RobertSalman\2018-12-08 20-05-34.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 07:10:02.634320800 score: 5.215
-See file: .\Data\RobertSalman\2018-12-07 07-10-02.txt for more info.
+Game: 20:13:00.139777300 score: 5.305
+See file: .\Data\RobertSalman\2018-12-08 20-13-00.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 07:17:18.858690100 score: 5.375
-See file: .\Data\RobertSalman\2018-12-07 07-17-18.txt for more info.
+Game: 20:20:22.910461100 score: 5.185
+See file: .\Data\RobertSalman\2018-12-08 20-20-22.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 07:24:34.851107100 score: 5.085
-See file: .\Data\RobertSalman\2018-12-07 07-24-34.txt for more info.
+Game: 20:27:48.797474700 score: 5.515
+See file: .\Data\RobertSalman\2018-12-08 20-27-48.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 07:31:53.884133600 score: 5.345
-See file: .\Data\RobertSalman\2018-12-07 07-31-53.txt for more info.
+Game: 20:35:24.601071600 score: 4.935
+See file: .\Data\RobertSalman\2018-12-08 20-35-24.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 07:39:08.905060400 score: 5.645
-See file: .\Data\RobertSalman\2018-12-07 07-39-08.txt for more info.
+Game: 20:42:30.438551100 score: 4.915
+See file: .\Data\RobertSalman\2018-12-08 20-42-30.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 07:46:38.170475900 score: 5.47
-See file: .\Data\RobertSalman\2018-12-07 07-46-38.txt for more info.
+Game: 20:49:38.741303200 score: 5.375
+See file: .\Data\RobertSalman\2018-12-08 20-49-38.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 07:54:09.464011800 score: 5.72
-See file: .\Data\RobertSalman\2018-12-07 07-54-09.txt for more info.
+Game: 20:57:18.261192400 score: 5.5
+See file: .\Data\RobertSalman\2018-12-08 20-57-18.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 08:01:42.178382 score: 5.405
-See file: .\Data\RobertSalman\2018-12-07 08-01-42.txt for more info.
+Game: 21:04:57.187884800 score: 5.335
+See file: .\Data\RobertSalman\2018-12-08 21-04-57.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 08:09:06.290975800 score: 5.2
-See file: .\Data\RobertSalman\2018-12-07 08-09-06.txt for more info.
+Game: 21:12:12.871265600 score: 5.045
+See file: .\Data\RobertSalman\2018-12-08 21-12-12.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 08:16:12.721667300 score: 5.305
-See file: .\Data\RobertSalman\2018-12-07 08-16-12.txt for more info.
+Game: 21:19:20.709692900 score: 5.055
+See file: .\Data\RobertSalman\2018-12-08 21-19-20.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 08:23:39.097087600 score: 5.235
-See file: .\Data\RobertSalman\2018-12-07 08-23-39.txt for more info.
+Game: 21:26:48.013932900 score: 5.135
+See file: .\Data\RobertSalman\2018-12-08 21-26-48.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 08:30:54.024966500 score: 4.97
-See file: .\Data\RobertSalman\2018-12-07 08-30-54.txt for more info.
+Game: 21:34:06.074242200 score: 5.32
+See file: .\Data\RobertSalman\2018-12-08 21-34-06.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 08:38:10.884163700 score: 5.56
-See file: .\Data\RobertSalman\2018-12-07 08-38-10.txt for more info.
+Game: 21:41:30.590042200 score: 5.52
+See file: .\Data\RobertSalman\2018-12-08 21-41-30.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 08:45:40.535179200 score: 5.535
-See file: .\Data\RobertSalman\2018-12-07 08-45-40.txt for more info.
+Game: 21:48:51.917045400 score: 5.195
+See file: .\Data\RobertSalman\2018-12-08 21-48-51.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 08:53:22.853997300 score: 4.95
-See file: .\Data\RobertSalman\2018-12-07 08-53-22.txt for more info.
+Game: 21:56:11.238198200 score: 4.875
+See file: .\Data\RobertSalman\2018-12-08 21-56-11.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 09:00:14.577048200 score: 5.365
-See file: .\Data\RobertSalman\2018-12-07 09-00-14.txt for more info.
+Game: 22:03:15.424753900 score: 5.415
+See file: .\Data\RobertSalman\2018-12-08 22-03-15.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 09:07:34.642031200 score: 5.46
-See file: .\Data\RobertSalman\2018-12-07 09-07-34.txt for more info.
+Game: 22:10:37.047234500 score: 5.305
+See file: .\Data\RobertSalman\2018-12-08 22-10-37.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 09:15:06.674389300 score: 5.03
-See file: .\Data\RobertSalman\2018-12-07 09-15-06.txt for more info.
+Game: 22:17:53.336832700 score: 4.785
+See file: .\Data\RobertSalman\2018-12-08 22-17-53.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 09:22:19.165784800 score: 5.245
-See file: .\Data\RobertSalman\2018-12-07 09-22-19.txt for more info.
+Game: 22:24:56.717578600 score: 5.305
+See file: .\Data\RobertSalman\2018-12-08 22-24-56.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 09:29:41.765775800 score: 5.06
-See file: .\Data\RobertSalman\2018-12-07 09-29-41.txt for more info.
+Game: 22:32:21.794369100 score: 4.98
+See file: .\Data\RobertSalman\2018-12-08 22-32-21.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 09:37:03.014681800 score: 5.315
-See file: .\Data\RobertSalman\2018-12-07 09-37-03.txt for more info.
+Game: 22:39:33.443618800 score: 5.105
+See file: .\Data\RobertSalman\2018-12-08 22-39-33.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 09:44:21.737441200 score: 5.13
-See file: .\Data\RobertSalman\2018-12-07 09-44-21.txt for more info.
+Game: 22:46:45.920269600 score: 5.235
+See file: .\Data\RobertSalman\2018-12-08 22-46-45.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 09:51:47.758383700 score: 5.295
-See file: .\Data\RobertSalman\2018-12-07 09-51-47.txt for more info.
+Game: 22:54:02.527154700 score: 5.21
+See file: .\Data\RobertSalman\2018-12-08 22-54-02.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 09:58:57.477958700 score: 5.39
-See file: .\Data\RobertSalman\2018-12-07 09-58-57.txt for more info.
+Game: 23:01:20.214325900 score: 5.48
+See file: .\Data\RobertSalman\2018-12-08 23-01-20.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 10:06:22.092878400 score: 5.02
-See file: .\Data\RobertSalman\2018-12-07 10-06-22.txt for more info.
+Game: 23:08:47.783430 score: 5.15
+See file: .\Data\RobertSalman\2018-12-08 23-08-47.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 10:13:27.411106 score: 5.115
-See file: .\Data\RobertSalman\2018-12-07 10-13-27.txt for more info.
+Game: 23:16:00.488041600 score: 5.16
+See file: .\Data\RobertSalman\2018-12-08 23-16-00.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 10:20:26.063345700 score: 5.165
-See file: .\Data\RobertSalman\2018-12-07 10-20-26.txt for more info.
+Game: 23:23:21.803946100 score: 5.185
+See file: .\Data\RobertSalman\2018-12-08 23-23-21.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 10:27:36.490684700 score: 5.26
-See file: .\Data\RobertSalman\2018-12-07 10-27-36.txt for more info.
+Game: 23:30:27.357939600 score: 5.365
+See file: .\Data\RobertSalman\2018-12-08 23-30-27.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 10:34:48.694056300 score: 5.11
-See file: .\Data\RobertSalman\2018-12-07 10-34-48.txt for more info.
+Game: 23:37:32.640578600 score: 5.5
+See file: .\Data\RobertSalman\2018-12-08 23-37-32.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 10:42:09.422250 score: 5.075
-See file: .\Data\RobertSalman\2018-12-07 10-42-09.txt for more info.
+Game: 23:45:00.338933 score: 5.1
+See file: .\Data\RobertSalman\2018-12-08 23-45-00.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 10:49:18.976003400 score: 5.245
-See file: .\Data\RobertSalman\2018-12-07 10-49-18.txt for more info.
+Game: 23:52:05.619030200 score: 5.21
+See file: .\Data\RobertSalman\2018-12-08 23-52-05.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 10:56:34.838241700 score: 5.32
-See file: .\Data\RobertSalman\2018-12-07 10-56-34.txt for more info.
+Game: 23:59:27.920651600 score: 5.26
+See file: .\Data\RobertSalman\2018-12-08 23-59-27.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 11:04:09.596568800 score: 5.51
-See file: .\Data\RobertSalman\2018-12-07 11-04-09.txt for more info.
+Game: 00:06:51.035063700 score: 4.985
+See file: .\Data\RobertSalman\2018-12-09 00-06-51.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 11:16:26.240371800 score: 5.525
-See file: .\Data\RobertSalman\2018-12-07 11-16-26.txt for more info.
+Game: 00:13:57.985590900 score: 4.885
+See file: .\Data\RobertSalman\2018-12-09 00-13-57.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 11:23:57.465745800 score: 4.74
-See file: .\Data\RobertSalman\2018-12-07 11-23-57.txt for more info.
+Game: 00:20:57.340650800 score: 5.395
+See file: .\Data\RobertSalman\2018-12-09 00-20-57.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 11:30:58.722231700 score: 5.23
-See file: .\Data\RobertSalman\2018-12-07 11-30-58.txt for more info.
+Game: 00:28:25.641323300 score: 5.23
+See file: .\Data\RobertSalman\2018-12-09 00-28-25.txt for more info.
 
 Max depth limit of 0 iterations. Run for 200 games.
-Game: 11:38:16.198016600 score: 5.47
-See file: .\Data\RobertSalman\2018-12-07 11-38-16.txt for more info.
+Game: 00:35:49.354993900 score: 5.25
+See file: .\Data\RobertSalman\2018-12-09 00-35-49.txt for more info.
+
+Max depth limit of 0 iterations. Run for 200 games.
+Game: 00:43:11.751140100 score: 5.605
+See file: .\Data\RobertSalman\2018-12-09 00-43-11.txt for more info.
+
+Max depth limit of 0 iterations. Run for 200 games.
+Game: 00:50:48.992543800 score: 4.885
+See file: .\Data\RobertSalman\2018-12-09 00-50-48.txt for more info.
+
+Max depth limit of 0 iterations. Run for 200 games.
+Game: 00:57:42.222621200 score: 5.37
+See file: .\Data\RobertSalman\2018-12-09 00-57-42.txt for more info.
+
+Max depth limit of 0 iterations. Run for 200 games.
+Game: 01:05:13.711542100 score: 5.13
+See file: .\Data\RobertSalman\2018-12-09 01-05-13.txt for more info.
+
+Max depth limit of 0 iterations. Run for 200 games.
+Game: 01:12:33.314755 score: 5.335
+See file: .\Data\RobertSalman\2018-12-09 01-12-33.txt for more info.
+
+Max depth limit of 0 iterations. Run for 200 games.
+Game: 01:19:42.652274700 score: 5.39
+See file: .\Data\RobertSalman\2018-12-09 01-19-42.txt for more info.
+
+Max depth limit of 0 iterations. Run for 200 games.
+Game: 01:26:59.283154400 score: 5.365
+See file: .\Data\RobertSalman\2018-12-09 01-26-59.txt for more info.
+
+Max depth limit of 0 iterations. Run for 200 games.
+Game: 01:34:15.486228600 score: 5.185
+See file: .\Data\RobertSalman\2018-12-09 01-34-15.txt for more info.
+
+Max depth limit of 0 iterations. Run for 200 games.
+Game: 01:41:27.826248200 score: 5.015
+See file: .\Data\RobertSalman\2018-12-09 01-41-27.txt for more info.
+
+Max depth limit of 0 iterations. Run for 200 games.
+Game: 01:48:29.782019100 score: 5.455
+See file: .\Data\RobertSalman\2018-12-09 01-48-29.txt for more info.
+
+Max depth limit of 0 iterations. Run for 200 games.
+Game: 01:55:53.014392800 score: 5.09
+See file: .\Data\RobertSalman\2018-12-09 01-55-53.txt for more info.
+
+Max depth limit of 0 iterations. Run for 200 games.
+Game: 02:03:03.580056800 score: 4.97
+See file: .\Data\RobertSalman\2018-12-09 02-03-03.txt for more info.
+
+Max depth limit of 0 iterations. Run for 200 games.
+Game: 02:10:20.174987300 score: 5.625
+See file: .\Data\RobertSalman\2018-12-09 02-10-20.txt for more info.
+
+Max depth limit of 0 iterations. Run for 200 games.
+Game: 02:17:35.273558900 score: 5.55
+See file: .\Data\RobertSalman\2018-12-09 02-17-35.txt for more info.
+
+Max depth limit of 0 iterations. Run for 200 games.
+Game: 02:25:11.406398700 score: 5.325
+See file: .\Data\RobertSalman\2018-12-09 02-25-11.txt for more info.
