@@ -17,7 +17,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Iterator;
-import java.io.*;
 
 public class RobertSalmanMCTS implements Agent {
 
@@ -29,11 +28,11 @@ public class RobertSalmanMCTS implements Agent {
     public final static long defaultRuntime = 1000;
     
     public static int maxDepthLimit = 0;
-    public static final int defaultMaxDepthLimit = 30;
+    public static final int defaultMaxDepthLimit = 28;
     public static double expFactor = 0.0;
     Random random;
     int roundLength;
-    
+
     public RobertSalmanMCTS()
     {
         random = new Random();
@@ -69,10 +68,10 @@ public class RobertSalmanMCTS implements Agent {
         //data may be improved by running a time based loop instead of iterations.
         //
         //To swap between these comment out the two lines you don't want to use.
-        //iterationsOrTime = false;//<---------------------------------Time based
-        //while(System.currentTimeMillis() < time)//<------------------Time based
-        iterationsOrTime = true;//<-----------------------------------------------Iteration based
-        for(int _iterations = 0; _iterations < iteration; _iterations++)//<-------Iteration based
+        iterationsOrTime = false;//<---------------------------------Time based
+        while(System.currentTimeMillis() < time)//<------------------Time based
+        //iterationsOrTime = true;//<-----------------------------------------------Iteration based
+        //for(int _iterations = 0; _iterations < iteration; _iterations++)//<-------Iteration based
         {
             GameState currentState = gameState.getCopy();
             

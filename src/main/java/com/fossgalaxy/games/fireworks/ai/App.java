@@ -34,8 +34,8 @@ public class App {
         boolean testExplorationFactor = false;
 
         int runCount = 0;
-        int maxRunCount = 400;
-        while(runCount  < maxRunCount)
+        int maxRunCount = 1;
+        while(RobertSalmanMCTS.expFactor < 1.0)
         {
             int currentGame = 0;
             
@@ -115,7 +115,7 @@ public class App {
             dataFile.append(System.lineSeparator());
             dataFile.close();
             
-            if(testExplorationFactor)RobertSalmanMCTS.expFactor += 0.1;
+            if(testExplorationFactor)RobertSalmanMCTS.expFactor += 0.05;
             if(testDepthLimit)RobertSalmanMCTS.maxDepthLimit++;
         }
         

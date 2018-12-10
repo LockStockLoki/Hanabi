@@ -17,6 +17,7 @@ public class RobertSalmanNode {
     
     public static final double defaultExplorationFactor = Math.sqrt(2);
     private final double explorationFactor;
+    public boolean useDefaultExploration = false;
     
     private Action transitionAction;
     private int agentID;
@@ -128,8 +129,17 @@ public class RobertSalmanNode {
         {
             return 0;
         }
-            
-        return ((score/ maxScore) / visits) + (explorationFactor * Math.sqrt(Math.log(legal / visits)));    
+
+        if(useDefaultExploration)
+        {
+            return ((score/ maxScore) / visits) + (defaultExplorationFactor * Math.sqrt(Math.log(legal / visits)));
+        }
+        if(!useDefaultExploration)
+        {
+            return ((score/ maxScore) / visits) + (explorationFactor * Math.sqrt(Math.log(legal / visits)));
+        }
+        
+        else return 0;
     }
 
     public int GetAgentID()
